@@ -1,0 +1,134 @@
+10-01 14:08:59 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 392:Plugin executed on: 'linux'
+10-01 14:08:59 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 393:Plugin executed with python version: '3.11.5 (main, Sep  2 2023, 14:16:33) [GCC 13.2.1 20230801]'
+10-01 14:08:59 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 394:KiCad build version: 7.0.7
+10-01 14:08:59 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 395:Plugin version: 2.1.3
+10-01 14:08:59 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 396:Frame repr: <wx._core.Frame object at 0x7f3f0b888ee0>
+10-01 14:08:59 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 420:Preparing replicator with J9 as a reference
+10-01 14:08:59 com_github_MitjaNemec_ReplicateLayout.replicate_layout 117:getting a list of all footprints on board
+10-01 14:08:59 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 468:source anchor footprint is 'J9'
+Located on: ['Cell PCB', 'Thermistor interface10']
+With filenames: ['cell-pcb.kicad_sch', 'thermistor.kicad_sch']
+With sheet_id:['Cell PCB', 'Thermistor interface10']
+10-01 14:08:59 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 475:Corresponding footprints are 
+[('J8', ['Cell PCB', 'Thermistor interface6']), ('J6', ['Cell PCB', 'Thermistor interface9']), ('J5', ['Cell PCB', 'Thermistor interface']), ('J2', ['Cell PCB', 'Thermistor interface8']), ('J12', ['Cell PCB', 'Thermistor interface11']), ('J11', ['Cell PCB', 'Thermistor interface4']), ('J10', ['Cell PCB', 'Thermistor interface1']), ('J1', ['Cell PCB', 'Thermistor interface5']), ('J3', ['Cell PCB', 'Thermistor interface2']), ('J7', ['Cell PCB', 'Thermistor interface7']), ('J9', ['Cell PCB', 'Thermistor interface10']), ('J4', ['Cell PCB', 'Thermistor interface3'])]
+10-01 14:08:59 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 487:Showing dialog
+10-01 14:08:59 com_github_MitjaNemec_ReplicateLayout.replicate_layout 424:constructing a list of sheets suitable for replication on level:'Thermistor interface10', file:'thermistor.kicad_sch'
+10-01 14:08:59 com_github_MitjaNemec_ReplicateLayout.replicate_layout 461:suitable sheets are:[['Cell PCB', 'Thermistor interface'], ['Cell PCB', 'Thermistor interface1'], ['Cell PCB', 'Thermistor interface11'], ['Cell PCB', 'Thermistor interface2'], ['Cell PCB', 'Thermistor interface3'], ['Cell PCB', 'Thermistor interface4'], ['Cell PCB', 'Thermistor interface5'], ['Cell PCB', 'Thermistor interface6'], ['Cell PCB', 'Thermistor interface7'], ['Cell PCB', 'Thermistor interface8'], ['Cell PCB', 'Thermistor interface9']]
+10-01 14:08:59 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1464:Level selected: ['Cell PCB', 'Thermistor interface10']
+10-01 14:08:59 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1299:Filtering list of tracks
+10-01 14:08:59 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 493:Toolbar position: wx.Point(1794, 176)
+10-01 14:08:59 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 498:Dialog position: wx.Point(1355, 176)
+10-01 14:09:01 com_github_MitjaNemec_ReplicateLayout.replicate_layout 424:constructing a list of sheets suitable for replication on level:'Thermistor interface10', file:'thermistor.kicad_sch'
+10-01 14:09:01 com_github_MitjaNemec_ReplicateLayout.replicate_layout 461:suitable sheets are:[['Cell PCB', 'Thermistor interface'], ['Cell PCB', 'Thermistor interface1'], ['Cell PCB', 'Thermistor interface11'], ['Cell PCB', 'Thermistor interface2'], ['Cell PCB', 'Thermistor interface3'], ['Cell PCB', 'Thermistor interface4'], ['Cell PCB', 'Thermistor interface5'], ['Cell PCB', 'Thermistor interface6'], ['Cell PCB', 'Thermistor interface7'], ['Cell PCB', 'Thermistor interface8'], ['Cell PCB', 'Thermistor interface9']]
+10-01 14:09:01 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 240:Replicating layout
+10-01 14:09:01 com_github_MitjaNemec_ReplicateLayout.replicate_layout 240:Starting replication of sheets: [['Cell PCB', 'Thermistor interface'], ['Cell PCB', 'Thermistor interface1'], ['Cell PCB', 'Thermistor interface11'], ['Cell PCB', 'Thermistor interface2'], ['Cell PCB', 'Thermistor interface3'], ['Cell PCB', 'Thermistor interface4'], ['Cell PCB', 'Thermistor interface5'], ['Cell PCB', 'Thermistor interface6'], ['Cell PCB', 'Thermistor interface7'], ['Cell PCB', 'Thermistor interface8'], ['Cell PCB', 'Thermistor interface9']]
+on level: ['Cell PCB', 'Thermistor interface10']
+with tracks=True, zone=True, text=True, text=True, intersecting=False, remove=False, locked footprints=False, group_only=False
+10-01 14:09:01 root 332:updating GUI message: 'Preparing for replication'
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 310:Getting the list of source footprints
+10-01 14:09:02 root 337:updating GUI with: 0
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 320:Getting the list of all the remaining footprints
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 327:Getting source tracks
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1299:Filtering list of tracks
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 331:Getting source zones
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 335:Getting source text items
+10-01 14:09:02 root 337:updating GUI with: 66
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 339:Getting source drawing items
+10-01 14:09:02 root 337:updating GUI with: 83
+10-01 14:09:02 root 332:updating GUI message: 'Replicating footprints'
+10-01 14:09:02 root 337:updating GUI with: 0
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 806:Replicating footprints
+10-01 14:09:02 root 337:updating GUI with: 0
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Replicating footprints on sheet ['Cell PCB', 'Thermistor interface']
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Replicating footprints on sheet ['Cell PCB', 'Thermistor interface1']
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Replicating footprints on sheet ['Cell PCB', 'Thermistor interface11']
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Replicating footprints on sheet ['Cell PCB', 'Thermistor interface2']
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Replicating footprints on sheet ['Cell PCB', 'Thermistor interface3']
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Replicating footprints on sheet ['Cell PCB', 'Thermistor interface4']
+10-01 14:09:02 root 337:updating GUI with: 47
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Replicating footprints on sheet ['Cell PCB', 'Thermistor interface5']
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Replicating footprints on sheet ['Cell PCB', 'Thermistor interface6']
+10-01 14:09:02 root 337:updating GUI with: 72
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Replicating footprints on sheet ['Cell PCB', 'Thermistor interface7']
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Replicating footprints on sheet ['Cell PCB', 'Thermistor interface8']
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Replicating footprints on sheet ['Cell PCB', 'Thermistor interface9']
+10-01 14:09:02 root 332:updating GUI message: 'Replicating tracks'
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 977:Replicating tracks
+10-01 14:09:02 root 337:updating GUI with: 0
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 983:Replicating tracks on sheet ['Cell PCB', 'Thermistor interface']
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 766:Net pairs for sheet ['Cell PCB', 'Thermistor interface'] :[('', ''), ('STAT10', 'STAT0'), ('GND', 'GND'), ('+3.3VA', '+3.3VA'), ('Net-(D12-A)', 'Net-(D8-A)'), ('TEMP10', 'TEMP0')]
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 983:Replicating tracks on sheet ['Cell PCB', 'Thermistor interface1']
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 766:Net pairs for sheet ['Cell PCB', 'Thermistor interface1'] :[('', ''), ('GND', 'GND'), ('Net-(D12-A)', 'Net-(D13-A)'), ('+3.3VA', '+3.3VA'), ('TEMP10', 'TEMP1'), ('STAT10', 'STAT1')]
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 983:Replicating tracks on sheet ['Cell PCB', 'Thermistor interface11']
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 766:Net pairs for sheet ['Cell PCB', 'Thermistor interface11'] :[('', ''), ('STAT10', 'STAT11'), ('GND', 'GND'), ('TEMP10', 'TEMP11'), ('+3.3VA', '+3.3VA'), ('Net-(D12-A)', 'Net-(D15-A)')]
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 983:Replicating tracks on sheet ['Cell PCB', 'Thermistor interface2']
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 766:Net pairs for sheet ['Cell PCB', 'Thermistor interface2'] :[('', ''), ('GND', 'GND'), ('+3.3VA', '+3.3VA'), ('STAT10', 'STAT2'), ('Net-(D12-A)', 'Net-(D6-A)'), ('TEMP10', 'TEMP2')]
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 983:Replicating tracks on sheet ['Cell PCB', 'Thermistor interface3']
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 766:Net pairs for sheet ['Cell PCB', 'Thermistor interface3'] :[('', ''), ('TEMP10', 'TEMP3'), ('Net-(D12-A)', 'Net-(D7-A)'), ('GND', 'GND'), ('STAT10', 'STAT3'), ('+3.3VA', '+3.3VA')]
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 983:Replicating tracks on sheet ['Cell PCB', 'Thermistor interface4']
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 766:Net pairs for sheet ['Cell PCB', 'Thermistor interface4'] :[('STAT10', 'STAT4'), ('', ''), ('TEMP10', 'TEMP4'), ('GND', 'GND'), ('Net-(D12-A)', 'Net-(D14-A)'), ('+3.3VA', '+3.3VA')]
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 983:Replicating tracks on sheet ['Cell PCB', 'Thermistor interface5']
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 766:Net pairs for sheet ['Cell PCB', 'Thermistor interface5'] :[('STAT10', 'STAT5'), ('TEMP10', 'TEMP5'), ('', ''), ('GND', 'GND'), ('+3.3VA', '+3.3VA'), ('Net-(D12-A)', 'Net-(D3-A)')]
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 983:Replicating tracks on sheet ['Cell PCB', 'Thermistor interface6']
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 766:Net pairs for sheet ['Cell PCB', 'Thermistor interface6'] :[('STAT10', 'STAT6'), ('TEMP10', 'TEMP6'), ('', ''), ('GND', 'GND'), ('+3.3VA', '+3.3VA'), ('Net-(D12-A)', 'Net-(D11-A)')]
+10-01 14:09:02 root 337:updating GUI with: 72
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 983:Replicating tracks on sheet ['Cell PCB', 'Thermistor interface7']
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 766:Net pairs for sheet ['Cell PCB', 'Thermistor interface7'] :[('', ''), ('STAT10', 'STAT7'), ('TEMP10', 'TEMP7'), ('GND', 'GND'), ('+3.3VA', '+3.3VA'), ('Net-(D12-A)', 'Net-(D10-A)')]
+10-01 14:09:02 root 337:updating GUI with: 73
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 983:Replicating tracks on sheet ['Cell PCB', 'Thermistor interface8']
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 766:Net pairs for sheet ['Cell PCB', 'Thermistor interface8'] :[('TEMP10', 'TEMP8'), ('', ''), ('GND', 'GND'), ('+3.3VA', '+3.3VA'), ('STAT10', 'STAT8'), ('Net-(D12-A)', 'Net-(D5-A)')]
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 983:Replicating tracks on sheet ['Cell PCB', 'Thermistor interface9']
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 766:Net pairs for sheet ['Cell PCB', 'Thermistor interface9'] :[('', ''), ('GND', 'GND'), ('TEMP10', 'TEMP9'), ('Net-(D12-A)', 'Net-(D9-A)'), ('+3.3VA', '+3.3VA'), ('STAT10', 'STAT9')]
+10-01 14:09:02 root 332:updating GUI message: 'Replicating zones'
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1047:Replicating zones
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1054:Replicating zones on sheet ['Cell PCB', 'Thermistor interface']
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 766:Net pairs for sheet ['Cell PCB', 'Thermistor interface'] :[('', ''), ('STAT10', 'STAT0'), ('GND', 'GND'), ('+3.3VA', '+3.3VA'), ('Net-(D12-A)', 'Net-(D8-A)'), ('TEMP10', 'TEMP0')]
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1054:Replicating zones on sheet ['Cell PCB', 'Thermistor interface1']
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 766:Net pairs for sheet ['Cell PCB', 'Thermistor interface1'] :[('', ''), ('GND', 'GND'), ('Net-(D12-A)', 'Net-(D13-A)'), ('+3.3VA', '+3.3VA'), ('TEMP10', 'TEMP1'), ('STAT10', 'STAT1')]
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1054:Replicating zones on sheet ['Cell PCB', 'Thermistor interface11']
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 766:Net pairs for sheet ['Cell PCB', 'Thermistor interface11'] :[('', ''), ('STAT10', 'STAT11'), ('GND', 'GND'), ('TEMP10', 'TEMP11'), ('+3.3VA', '+3.3VA'), ('Net-(D12-A)', 'Net-(D15-A)')]
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1054:Replicating zones on sheet ['Cell PCB', 'Thermistor interface2']
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 766:Net pairs for sheet ['Cell PCB', 'Thermistor interface2'] :[('', ''), ('GND', 'GND'), ('+3.3VA', '+3.3VA'), ('STAT10', 'STAT2'), ('Net-(D12-A)', 'Net-(D6-A)'), ('TEMP10', 'TEMP2')]
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1054:Replicating zones on sheet ['Cell PCB', 'Thermistor interface3']
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 766:Net pairs for sheet ['Cell PCB', 'Thermistor interface3'] :[('', ''), ('TEMP10', 'TEMP3'), ('Net-(D12-A)', 'Net-(D7-A)'), ('GND', 'GND'), ('STAT10', 'STAT3'), ('+3.3VA', '+3.3VA')]
+10-01 14:09:02 root 337:updating GUI with: 45
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1054:Replicating zones on sheet ['Cell PCB', 'Thermistor interface4']
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 766:Net pairs for sheet ['Cell PCB', 'Thermistor interface4'] :[('STAT10', 'STAT4'), ('', ''), ('TEMP10', 'TEMP4'), ('GND', 'GND'), ('Net-(D12-A)', 'Net-(D14-A)'), ('+3.3VA', '+3.3VA')]
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1054:Replicating zones on sheet ['Cell PCB', 'Thermistor interface5']
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 766:Net pairs for sheet ['Cell PCB', 'Thermistor interface5'] :[('STAT10', 'STAT5'), ('TEMP10', 'TEMP5'), ('', ''), ('GND', 'GND'), ('+3.3VA', '+3.3VA'), ('Net-(D12-A)', 'Net-(D3-A)')]
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1054:Replicating zones on sheet ['Cell PCB', 'Thermistor interface6']
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 766:Net pairs for sheet ['Cell PCB', 'Thermistor interface6'] :[('STAT10', 'STAT6'), ('TEMP10', 'TEMP6'), ('', ''), ('GND', 'GND'), ('+3.3VA', '+3.3VA'), ('Net-(D12-A)', 'Net-(D11-A)')]
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1054:Replicating zones on sheet ['Cell PCB', 'Thermistor interface7']
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 766:Net pairs for sheet ['Cell PCB', 'Thermistor interface7'] :[('', ''), ('STAT10', 'STAT7'), ('TEMP10', 'TEMP7'), ('GND', 'GND'), ('+3.3VA', '+3.3VA'), ('Net-(D12-A)', 'Net-(D10-A)')]
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1054:Replicating zones on sheet ['Cell PCB', 'Thermistor interface8']
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 766:Net pairs for sheet ['Cell PCB', 'Thermistor interface8'] :[('TEMP10', 'TEMP8'), ('', ''), ('GND', 'GND'), ('+3.3VA', '+3.3VA'), ('STAT10', 'STAT8'), ('Net-(D12-A)', 'Net-(D5-A)')]
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1054:Replicating zones on sheet ['Cell PCB', 'Thermistor interface9']
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 766:Net pairs for sheet ['Cell PCB', 'Thermistor interface9'] :[('', ''), ('GND', 'GND'), ('TEMP10', 'TEMP9'), ('Net-(D12-A)', 'Net-(D9-A)'), ('+3.3VA', '+3.3VA'), ('STAT10', 'STAT9')]
+10-01 14:09:02 root 332:updating GUI message: 'Replicating text'
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1136:Replicating text
+10-01 14:09:02 root 337:updating GUI with: 0
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1143:Replicating text on sheet ['Cell PCB', 'Thermistor interface']
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1143:Replicating text on sheet ['Cell PCB', 'Thermistor interface1']
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1143:Replicating text on sheet ['Cell PCB', 'Thermistor interface11']
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1143:Replicating text on sheet ['Cell PCB', 'Thermistor interface2']
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1143:Replicating text on sheet ['Cell PCB', 'Thermistor interface3']
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1143:Replicating text on sheet ['Cell PCB', 'Thermistor interface4']
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1143:Replicating text on sheet ['Cell PCB', 'Thermistor interface5']
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1143:Replicating text on sheet ['Cell PCB', 'Thermistor interface6']
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1143:Replicating text on sheet ['Cell PCB', 'Thermistor interface7']
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1143:Replicating text on sheet ['Cell PCB', 'Thermistor interface8']
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1143:Replicating text on sheet ['Cell PCB', 'Thermistor interface9']
+10-01 14:09:02 root 332:updating GUI message: 'Replicating drawings'
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1187:Replicating drawings
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1193:Replicating drawings on sheet ['Cell PCB', 'Thermistor interface']
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1193:Replicating drawings on sheet ['Cell PCB', 'Thermistor interface1']
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1193:Replicating drawings on sheet ['Cell PCB', 'Thermistor interface11']
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1193:Replicating drawings on sheet ['Cell PCB', 'Thermistor interface2']
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1193:Replicating drawings on sheet ['Cell PCB', 'Thermistor interface3']
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1193:Replicating drawings on sheet ['Cell PCB', 'Thermistor interface4']
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1193:Replicating drawings on sheet ['Cell PCB', 'Thermistor interface5']
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1193:Replicating drawings on sheet ['Cell PCB', 'Thermistor interface6']
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1193:Replicating drawings on sheet ['Cell PCB', 'Thermistor interface7']
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1193:Replicating drawings on sheet ['Cell PCB', 'Thermistor interface8']
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1193:Replicating drawings on sheet ['Cell PCB', 'Thermistor interface9']
+10-01 14:09:02 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 256:Replication complete
