@@ -3,4 +3,5 @@
   (lib (name "footprints")(type "KiCad")(uri "${KIPRJMOD}/ucc12040/footprints.pretty")(options "")(descr ""))
   (lib (name "jst_conn")(type "KiCad")(uri "${KIPRJMOD}/jst_conn.pretty")(options "")(descr ""))
   (lib (name "Panelization")(type "KiCad")(uri "${KIPRJMOD}/Panelization.pretty")(options "")(descr ""))
+  (lib (name "art")(type "KiCad")(uri "${KIPRJMOD}/art.pretty")(options "")(descr ""))
 )

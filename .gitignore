@@ -24,7 +24,7 @@ fp-info-cache
 *.csv
 
 # Kicad backup files
-pcb/*-backups/*
+*-backups/*
 
 
 # build dir

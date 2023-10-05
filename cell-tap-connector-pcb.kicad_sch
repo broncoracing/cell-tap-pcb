@@ -12,7 +12,7 @@
     (stroke (width 0.1524) (type solid))
     (fill (color 0 0 0 0.0000))
     (uuid 61ef8a08-b3c1-45d1-bd6c-3b0bcf3dcd0a)
-    (property "Sheetname" "Isolater" (at 149.86 62.7884 0)
+    (property "Sheetname" "Isolator" (at 149.86 62.7884 0)
       (effects (font (size 1.27 1.27)) (justify left bottom))
     )
     (property "Sheetfile" "Isolater.kicad_sch" (at 149.86 118.6946 0)
