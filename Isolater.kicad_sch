@@ -1254,10 +1254,6 @@
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 683e0578-b9b5-4450-95a4-5824c2e39165)
   )
-  (text "TODO: Figure out passives for this\n" (at 73.66 77.47 0)
-    (effects (font (size 3 3) (thickness 0.8) bold (color 255 4 17 1)) (justify left bottom))
-    (uuid 7c92c255-05d4-4b42-a8ea-23a1a0b5f4e6)
-  )
 
   (label "GLV-" (at 127 146.05 0) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left bottom))
