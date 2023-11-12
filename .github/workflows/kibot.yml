@@ -14,8 +14,8 @@ on:
     - "**/*kibot.yml"
 
 env:
-  schema: "cell-pcb.kicad_sch"
-  board: "cell-pcb.kicad_pcb"
+  schema: "cell-tap-connector-pcb.kicad_sch"
+  board: "cell-tap-connector-pcb.kicad_pcb"
   dir: .
 
 jobs:
