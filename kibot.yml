@@ -1,6 +1,9 @@
 kibot:
   version: 1
 
+global:
+  drc_exclusions_workaround: true
+
 preflight:
   set_text_variables:
     - name: "date"
