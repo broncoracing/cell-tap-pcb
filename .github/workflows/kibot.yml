@@ -8,20 +8,14 @@ on:
   workflow_dispatch:
   push:
     paths:
-    - "pcb/*.kicad_sch"
-    - "pcb/*.kicad_pcb"
-    - "pcb/*.kicad_pro"
-    - "**/*kibot.yml"
-  pull_request:
-    paths:
-    - "pcb/*.kicad_sch"
-    - "pcb/*.kicad_pcb"
-    - "pcb/*.kicad_pro"
+    - "*.kicad_sch"
+    - "*.kicad_pcb"
+    - "*.kicad_pro"
     - "**/*kibot.yml"
 
 env:
-  schema: "pcb/PCB.kicad_sch"
-  board: "pcb/PCB.kicad_pcb"
+  schema: "cell-tap-connector-pcb.kicad_sch"
+  board: "cell-tap-connector-pcb.kicad_pcb"
   dir: .
 
 jobs:
