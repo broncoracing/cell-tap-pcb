@@ -1910,10 +1910,6 @@
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 11d68d70-31ea-4ef4-98d0-b608a1314373)
   )
-  (text "TODO: verify dsub footprint\n" (at -5.08 25.4 0)
-    (effects (font (size 3 3) (thickness 0.8) bold (color 255 4 17 1)) (justify left bottom))
-    (uuid 2749c310-c820-424c-9cb7-6e82b83fb14d)
-  )
   (text "Programming/debug header.\nPlace in an accessible location close to the mcu."
     (at 209.55 181.61 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
