@@ -21,7 +21,9 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "can-ids/CAN.h"
+#include <string.h>
+#include <math.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -32,6 +34,8 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 
+// TODO Read from flash
+uint32_t BOARD_ID = 0;
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -94,16 +98,331 @@ uint8_t adc_to_channel_mapping[N_ADC_CHANNELS] = {
   0, 1, 2, 12, 10, 6, 8, 14, 3, 4, 9, 11, 13, 7, 5
 };
 
-// uint8_t adc_to_channel_mapping[N_ADC_CHANNELS] = {
-//   0, 1, 2, 8, 9, 14, 5, 13, 6, 10, 4, 11, 3, 12, 7
-// };
-
-
 
 
 volatile uint16_t adc_readings[N_ADC_CHANNELS];
 
-uint16_t temperatures[N_ADC_CHANNELS];
+int16_t temperatures[N_ADC_CHANNELS];
+
+uint32_t write_cal_data(struct ThermistorCal_T* data);
+
+float compute_resistance(uint16_t adc_reading) {
+  float adc_float = (float) adc_reading;
+  float voltage_fac = adc_reading / ((float) 0x1000); // input voltage as a fraction of VDDA
+  const float ref_resistance = 10000.0; // precision reference resistor value
+  float rtd_resistance = ref_resistance * ((1.0 / voltage_fac) - 1);
+  return rtd_resistance;
+}
+
+
+struct SteinhartHartParameters compute_parameters(float r1, float t1, float r2, float t2, float r3, float t3) {
+    float ln_r1 = logf(r1);
+    float ln_r2 = logf(r2);
+    float ln_r3 = logf(r3);
+
+    float Y_1 = 1.0 / t1;
+    float Y_2 = 1.0 / t2;
+    float Y_3 = 1.0 / t3;
+
+    float gamma_2 = (Y_2 - Y_1) / (ln_r2 - ln_r1);
+    float gamma_3 = (Y_3 - Y_1) / (ln_r3 - ln_r1);
+
+    float C = ((gamma_3 - gamma_2) / (ln_r3 - ln_r2)) * 1.0 / (ln_r1 + ln_r2 + ln_r3);
+
+    float B = gamma_2 - C * (ln_r1 * ln_r1 + ln_r1 * ln_r2 + ln_r2 * ln_r2);
+
+    float A = Y_1 - (B + C * ln_r1 * ln_r1) * ln_r1;
+
+    struct SteinhartHartParameters params = {A,B,C};
+    return params;
+}
+
+float compute_temperature(struct SteinhartHartParameters* p, float r) {
+  float ln_r = logf(r);
+  float t_inv = p->A + p->B * ln_r + p->C * ln_r * ln_r;
+  return 1.0 / t_inv;
+}
+
+uint8_t cal_cmd(uint8_t cmd, float value) {
+  uint8_t errno = 0;
+  
+  // read current calibration from flash
+  struct ThermistorCal_T current_cal;
+  struct ThermistorCal_T* memcpy_source = CAL_TABLE;
+  memcpy(&current_cal, memcpy_source, sizeof(struct ThermistorCal_T));
+  switch(cmd) {
+    case 0:
+      // clear calibration
+      struct ThermistorCal_T blank_cal = {0};
+      if(write_cal_data(&blank_cal) > 0) errno = 1;
+      break;
+    case 1:
+    case 2:
+    case 3:
+      current_cal.temps[cmd - 1] = value;
+      for(uint8_t i = 0; i < N_ADC_CHANNELS; ++i) {
+        // TODO use filtered adc readings
+        uint16_t reading = adc_readings[i];
+        if(reading < ADC_ERR_LOW || reading > ADC_ERR_HIGH) {
+          errno = 3;
+          break;
+        }
+        current_cal.adc_readings[i][cmd - 1] = adc_readings[i];
+      }
+      if(errno == 0) {
+        current_cal.temp_calibrations[cmd - 1] = 1;
+        if(write_cal_data(&current_cal) > 0) errno = 1;
+      }
+      break;
+    case 4:
+      // Verify that all three calibration points have been read, otherwise the result will be nonsense
+      if(current_cal.temp_calibrations[0] && current_cal.temp_calibrations[1] && current_cal.temp_calibrations[2]) {
+      
+        // Sort temperatues low to high
+        uint8_t low_cal_idx = 0;
+        uint8_t mid_cal_idx = 1;
+        uint8_t high_cal_idx = 2;
+
+        if(current_cal.temp_calibrations[low_cal_idx] > current_cal.temp_calibrations[high_cal_idx]) {
+          float t = high_cal_idx;
+          high_cal_idx = low_cal_idx;
+          low_cal_idx = t;
+        }
+        if(current_cal.temp_calibrations[low_cal_idx] > current_cal.temp_calibrations[mid_cal_idx]) {
+          float t = mid_cal_idx;
+          mid_cal_idx = low_cal_idx;
+          low_cal_idx = t;
+        }
+        if(current_cal.temp_calibrations[mid_cal_idx] > current_cal.temp_calibrations[high_cal_idx]) {
+          float t = high_cal_idx;
+          high_cal_idx = mid_cal_idx;
+          mid_cal_idx = t;
+        }
+        float t1 = current_cal.temp_calibrations[low_cal_idx];
+        float t2 = current_cal.temp_calibrations[mid_cal_idx];
+        float t3 = current_cal.temp_calibrations[high_cal_idx];
+        // now low/mid/high_cal_idx should be in order
+        for(uint8_t i = 0; i < N_ADC_CHANNELS; ++i) {
+          float r1 = compute_resistance(current_cal.adc_readings[i][low_cal_idx]);
+          float r2 = compute_resistance(current_cal.adc_readings[i][mid_cal_idx]);
+          float r3 = compute_resistance(current_cal.adc_readings[i][high_cal_idx]);
+          struct SteinhartHartParameters params = compute_parameters(r1, t1, r2, t2, r3, t3);
+          if(isnan(params.A) || isnan(params.B) || isnan(params.C)) {
+            errno = 5;
+            break;
+          }
+          current_cal.parameters[i] = params;
+        }
+      } else {
+        errno = 4;
+        break;
+      }
+
+      current_cal.abc_calibration = 1;
+
+      if(write_cal_data(&current_cal) > 0) errno = 1;
+      break;
+    default:
+      errno = 2;
+  }
+
+  // send response
+  // Message header
+  CAN_TxHeaderTypeDef m;
+  // Use standard ID
+  m.IDE = CAN_ID_STD;
+  // Set message ID
+  m.StdId = CELL_TAP_CAL_RESP_ID + BOARD_ID;
+  // Use CAN_RTR_DATA to transmit data
+  // We may use CAN_RTR_REMOTE to request things to send data in the future
+  m.RTR = CAN_RTR_DATA;
+  // Amount of data
+  m.DLC = CELL_TAP_CAL_RESP_DLC;
+
+  // Data to send
+  uint8_t data[1];
+  data[0] = errno;
+
+  // Send a message
+  uint32_t mailbox;
+  HAL_CAN_AddTxMessage(&hcan, &m, data, &mailbox);
+  return 0;
+}
+
+// CAN Interrupt handler. Called whenever a new CAN frame is received.
+void can_irq(CAN_HandleTypeDef *pcan) {
+  // Message header
+  CAN_RxHeaderTypeDef msg;
+  // Message data. Only filled with as much data as the message contained, the rest is garbage.
+  uint8_t data[8];
+
+  // Read the next CAN frame
+  HAL_CAN_GetRxMessage(pcan, CAN_RX_FIFO0, &msg, data);
+
+  // Only accept standard CAN IDs, we don't use extended IDs.
+  if(msg.IDE == CAN_ID_STD) { 
+    switch (msg.StdId)
+      {
+      // Add cases for each CAN ID you want to handle
+
+      // ID 0xB0 is a bootloader command, so reset the mcu when received.
+      case BOOTLOADER_ID:
+        __NVIC_SystemReset(); // Reset to bootloader
+        break;
+      
+      case CELL_TAP_CAL_CMD_ID: // calibration command
+        uint8_t command = read_field_u8(&CELL_TAP_CAL_CMD_cmd, data);
+        uint32_t int_value = (data[1] << 24) + (data[2] << 16) + (data[3] << 8) + data[4];
+        float value = *(float *) &int_value; // reinterpret bytes as float without doing conversion
+
+        uint8_t errno = cal_cmd(command, value);
+
+      default:
+        // Default behavior for unrecognized CAN IDs. Probably just ignore.
+        break;
+      }
+  }
+}
+
+// We only send one CAN message each time to save CAN bus resources.
+static uint8_t can_message_idx = 0;
+
+void can_transmit_temperatures(void) {
+  // Message header
+  CAN_TxHeaderTypeDef m;
+  // Use standard ID
+  m.IDE = CAN_ID_STD;
+  // Set message ID
+  m.StdId = CELL_TAP_1_1_ID + can_message_idx + 4 * BOARD_ID;
+  // Use CAN_RTR_DATA to transmit data
+  // We may use CAN_RTR_REMOTE to request things to send data in the future
+  m.RTR = CAN_RTR_DATA;
+  // Amount of data
+  m.DLC = CELL_TAP_1_1_DLC;
+
+  // Data to send
+  uint8_t data[8];
+
+  switch(can_message_idx) {
+    case 0:
+      data[0] = (temperatures[0] >> 8) & 0xFF;
+      data[1] = temperatures[0] & 0xFF;
+      data[2] = (temperatures[1] >> 8) & 0xFF;
+      data[3] = temperatures[1] & 0xFF;
+      data[4] = (temperatures[2] >> 8) & 0xFF;
+      data[5] = temperatures[2] & 0xFF;
+      data[6] = (temperatures[3] >> 8) & 0xFF;
+      data[7] = temperatures[3] & 0xFF;
+      break;
+    case 1:
+      data[0] = (temperatures[4] >> 8) & 0xFF;
+      data[1] = temperatures[4] & 0xFF;
+      data[2] = (temperatures[5] >> 8) & 0xFF;
+      data[3] = temperatures[5] & 0xFF;
+      data[4] = (temperatures[6] >> 8) & 0xFF;
+      data[5] = temperatures[6] & 0xFF;
+      data[6] = (temperatures[7] >> 8) & 0xFF;
+      data[7] = temperatures[7] & 0xFF;
+      break;
+    case 2:
+      data[0] = (temperatures[8] >> 8) & 0xFF;
+      data[1] = temperatures[8] & 0xFF;
+      data[2] = (temperatures[9] >> 8) & 0xFF;
+      data[3] = temperatures[9] & 0xFF;
+      data[4] = (temperatures[10] >> 8) & 0xFF;
+      data[5] = temperatures[10] & 0xFF;
+      data[6] = (temperatures[11] >> 8) & 0xFF;
+      data[7] = temperatures[11] & 0xFF;
+      break;
+    case 3:
+      data[0] = (temperatures[12] >> 8) & 0xFF;
+      data[1] = temperatures[12] & 0xFF;
+      data[2] = (temperatures[13] >> 8) & 0xFF;
+      data[3] = temperatures[13] & 0xFF;
+      data[4] = (temperatures[14] >> 8) & 0xFF;
+      data[5] = temperatures[14] & 0xFF;
+
+      int16_t max_temp = INT16_MIN;
+      for(int i = 0; i < 12; ++i) {
+        int16_t temp = temperatures[i];
+        if(temp > max_temp) {
+          max_temp = temp;
+        }
+      }
+      data[6] = (max_temp >> 8) & 0xFF;
+      data[7] = max_temp & 0xFF;
+      break;
+    default:
+      Error_Handler();
+      break;
+  }
+
+  // Send a message
+  uint32_t mailbox;
+  HAL_CAN_AddTxMessage(&hcan, &m, data, &mailbox);
+  
+  can_message_idx = (can_message_idx + 1) % 4;
+}
+
+uint8_t __fls_wr(const uint32_t *page, const uint32_t *buf, uint32_t len)
+{
+  __HAL_FLASH_CLEAR_FLAG(FLASH_FLAG_EOP | FLASH_FLAG_PGERR | FLASH_FLAG_WRPERR);
+
+  uint32_t erase_err;
+  FLASH_EraseInitTypeDef erase_page = {
+      FLASH_TYPEERASE_PAGES,
+      FLASH_BANK_1,
+      (uint32_t)page, 1};
+
+  if (HAL_OK != HAL_FLASHEx_Erase(&erase_page, &erase_err)) {
+    return 1;
+  }
+
+  for (uint32_t i = 0; i < len; ++i)
+  {
+    HAL_StatusTypeDef res = HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD, (uint32_t)page, *buf);
+    if (HAL_OK != res)
+    {
+      __NOP();
+      return 2;
+    }
+    ++page;
+    ++buf;
+  }
+  __NOP();
+
+  return 0;
+}
+
+uint8_t fls_wr(const uint32_t *page, const uint32_t *buf, uint32_t len)
+{
+  // does flash equal buffer already?
+  if (0 == memcmp(page, buf, 4 * len))
+  {
+    return 0;
+  }
+
+  HAL_FLASH_Unlock();
+  uint8_t r = __fls_wr(page, buf, len);
+  HAL_FLASH_Lock();
+  if (r)
+  {
+    return r;
+  }
+
+  // verify
+  if (0 != memcmp(page, buf, 4 * len))
+  {
+    return 10;
+  }
+
+  return 0;
+}
+
+
+uint32_t write_cal_data(struct ThermistorCal_T* data) {
+  return fls_wr(CAL_TABLE, (uint32_t*) data, sizeof(struct ThermistorCal_T) / sizeof(uint32_t));
+}
 
 /* USER CODE END 0 */
 
@@ -114,7 +433,8 @@ uint16_t temperatures[N_ADC_CHANNELS];
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-
+  // necessary for bootloader
+  SCB->VTOR = (uint32_t)0x08003000;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -142,8 +462,12 @@ int main(void)
   
   HAL_ADCEx_Calibration_Start(&hadc1);
 
-  for(uint8_t i = 0; i < 12; ++i) {
+  if(FLASH_VARS->board.id < 10 || FLASH_VARS->board.id > 16) {
+    // Board id not in the proper range :(
+      BOARD_ID = FLASH_VARS->board.id - 10;
+  }
 
+  for(uint8_t i = 0; i < 12; ++i) {
     HAL_GPIO_WritePin(status_ports[i], status_pins[i], GPIO_PIN_SET);
     HAL_Delay(50);
   }
@@ -159,17 +483,21 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    HAL_ADC_Start_DMA(&hadc1, adc_readings, N_ADC_CHANNELS);
+    HAL_ADC_Start_DMA(&hadc1, (uint32_t*) adc_readings, N_ADC_CHANNELS);
     HAL_Delay(10);
 
     for(uint8_t i = 0; i < N_ADC_CHANNELS; ++i) {
       uint8_t channel = adc_to_channel_mapping[i];
       uint16_t reading = adc_readings[i];
-      temperatures[channel] = reading;
+      temperatures[channel] = reading; // todo calibration, conversion
       if(channel < N_STATUS_LEDS){
         HAL_GPIO_WritePin(status_ports[channel], status_pins[channel], reading < ADC_ERR_LOW || reading > ADC_ERR_HIGH);
       }
     }
+    
+    // TODO Filtering sensor values
+    can_transmit_temperatures();
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -196,7 +524,7 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
-  RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL9;
+  RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL8;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
     Error_Handler();
@@ -412,7 +740,7 @@ static void MX_CAN_Init(void)
 
   /* USER CODE END CAN_Init 1 */
   hcan.Instance = CAN1;
-  hcan.Init.Prescaler = 9;
+  hcan.Init.Prescaler = 8;
   hcan.Init.Mode = CAN_MODE_NORMAL;
   hcan.Init.SyncJumpWidth = CAN_SJW_1TQ;
   hcan.Init.TimeSeg1 = CAN_BS1_6TQ;
@@ -428,6 +756,28 @@ static void MX_CAN_Init(void)
     Error_Handler();
   }
   /* USER CODE BEGIN CAN_Init 2 */
+  // Set up filter to accept all CAN messages
+  CAN_FilterTypeDef sf;
+  sf.FilterMaskIdHigh = 0x0000;
+  sf.FilterMaskIdLow = 0x0000;
+  sf.FilterFIFOAssignment = CAN_FILTER_FIFO0;
+  sf.FilterBank = 0;
+  sf.FilterMode = CAN_FILTERMODE_IDMASK;
+  sf.FilterScale = CAN_FILTERSCALE_32BIT;
+  sf.FilterActivation = CAN_FILTER_ENABLE;
+
+  if (HAL_CAN_ConfigFilter(&hcan, &sf) != HAL_OK) {
+    Error_Handler();
+  }
+  
+  if (HAL_CAN_Start(&hcan) != HAL_OK) {
+    Error_Handler();
+  }
+
+  // Enables interrupts
+  if (HAL_CAN_ActivateNotification(&hcan, CAN_IT_RX_FIFO0_MSG_PENDING) != HAL_OK) {
+    Error_Handler();
+  }
 
   /* USER CODE END CAN_Init 2 */
 
@@ -508,7 +858,7 @@ void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
   /* User can add his own implementation to report the HAL error return state */
-  __disable_irq();
+  // __disable_irq();
   while (1)
   {
   }

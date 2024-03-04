@@ -53,7 +53,7 @@ extern "C" {
 void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
-
+void can_irq(CAN_HandleTypeDef *pcan);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
@@ -92,6 +92,71 @@ void Error_Handler(void);
 
 #define N_ADC_CHANNELS 15
 #define N_STATUS_LEDS 12
+
+struct SteinhartHartParameters {
+  float A,B,C;
+};
+
+struct ThermistorCal_T {
+  uint8_t temp_calibrations[3]; // stores whether the calibration temperatures have been read
+  uint8_t abc_calibration; // stores whether the thermistor calibration values have been calculated
+  // readings to 
+  float temps[3];
+  uint16_t adc_readings[N_ADC_CHANNELS][3];
+  struct SteinhartHartParameters parameters[N_ADC_CHANNELS];
+};
+
+
+#define PAGE_SIZE 0x400
+#define CAL_TABLE 0x08010000 - PAGE_SIZE // last 1k block of flash* used to store calibration data
+// * except that this chip actually secretly has 128k of flash instead of 64k (but don't tell anyone)
+
+
+// Bootloader ID things - so that this board can check its own bootloader ID
+struct app_vars_t
+{
+  // Application binary size
+  uint32_t page_count;
+  // CRC of application to verify before jumping to it
+	uint32_t crc;
+};
+
+struct board_vars_t
+{
+  // Timestamp from bootloader build. Used to reset data when flashing new bootloader.
+  uint64_t bl_build_version;
+  // Board ID for bootloader. Must be different for each board
+  uint8_t id;
+  uint8_t _padding[3];
+};
+
+
+struct bl_vars_t // size has to be a multiple of 4
+{
+  struct app_vars_t app;
+  struct board_vars_t board;
+};
+
+_Static_assert(sizeof(struct bl_vars_t) % 4 == 0);
+
+struct __packed bl_cmd_t 
+{
+	uint8_t brd;
+	uint8_t cmd;
+	uint16_t par1;
+	uint32_t par2;
+};
+
+_Static_assert (sizeof(struct bl_cmd_t) == 8);
+
+
+// Base address to write app
+#define APP_BASE ((uint32_t *)(0x08003000))
+
+// Location where pvars are stored
+#define FLASH_VARS ((volatile struct bl_vars_t *)(APP_BASE - 0x100))
+
+
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus
