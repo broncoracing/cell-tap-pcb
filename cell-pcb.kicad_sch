@@ -2509,7 +2509,7 @@
   (symbol (lib_id "Connector_Generic:Conn_01x01") (at 139.7 48.26 0) (unit 1)
     (in_bom no) (on_board yes) (dnp no)
     (uuid 0a48a823-cf16-477d-9aa1-e98f9e583d39)
-    (property "Reference" "J6" (at 142.24 48.26 0)
+    (property "Reference" "J17" (at 142.24 48.26 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "Mounting Hole M5" (at 142.24 49.53 0)
@@ -2533,9 +2533,6 @@
     (pin "1" (uuid 475d20ec-fe2e-489b-8fd9-bfe4b41b40ce))
     (instances
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "J6") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "J17") (unit 1)
         )
@@ -2566,9 +2563,6 @@
         )
       )
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "#FLG01") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "#FLG01") (unit 1)
         )
@@ -2579,7 +2573,7 @@
   (symbol (lib_id "power:GND") (at 135.89 21.59 90) (mirror x) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 11a3c6a2-47aa-4e8a-8be9-a022530665f8)
-    (property "Reference" "#PWR01" (at 142.24 21.59 0)
+    (property "Reference" "#PWR049" (at 142.24 21.59 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 138.43 21.59 90)
@@ -2594,9 +2588,6 @@
     (pin "1" (uuid ca0304ff-b80c-47c4-89c9-5f15dc05c63f))
     (instances
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "#PWR01") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "#PWR049") (unit 1)
         )
@@ -2627,9 +2618,6 @@
         )
       )
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "#PWR027") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "#PWR054") (unit 1)
         )
@@ -2660,9 +2648,6 @@
         )
       )
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "#PWR019") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "#PWR062") (unit 1)
         )
@@ -2709,9 +2694,6 @@
         )
       )
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "C8") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "C19") (unit 1)
         )
@@ -2750,9 +2732,6 @@
     (pin "2" (uuid d0dd9bcf-d39b-4ae1-81b8-57e9924d5740))
     (instances
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "F11") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "F11") (unit 1)
         )
@@ -2791,9 +2770,6 @@
     (pin "2" (uuid c3e8f61b-b3c9-4dcd-978d-aa9f1841baed))
     (instances
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "F7") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "F7") (unit 1)
         )
@@ -2824,9 +2800,6 @@
         )
       )
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "#PWR020") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "#PWR063") (unit 1)
         )
@@ -2857,9 +2830,6 @@
         )
       )
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "#PWR028") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "#PWR057") (unit 1)
         )
@@ -2870,7 +2840,7 @@
   (symbol (lib_id "Device:LED") (at 185.42 219.71 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 21bc81af-864f-4c16-bead-d3c366116cc9)
-    (property "Reference" "D19" (at 189.23 220.0275 90)
+    (property "Reference" "D17" (at 189.23 220.0275 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "RED 0603" (at 189.23 222.5675 90)
@@ -2895,9 +2865,6 @@
     (pin "2" (uuid 84c1dee5-9d80-4343-a834-29957fabb859))
     (instances
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "D19") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "D17") (unit 1)
         )
@@ -2908,7 +2875,7 @@
   (symbol (lib_id "Connector_Generic:Conn_01x01") (at 139.7 53.34 0) (unit 1)
     (in_bom no) (on_board yes) (dnp no)
     (uuid 22641496-f397-40dc-95d2-04c0a9221f9b)
-    (property "Reference" "J8" (at 142.24 53.34 0)
+    (property "Reference" "J19" (at 142.24 53.34 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "Mounting Hole M5" (at 142.24 54.61 0)
@@ -2932,9 +2899,6 @@
     (pin "1" (uuid 20aa4725-1445-426b-b9af-d9f5d0504974))
     (instances
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "J8") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "J19") (unit 1)
         )
@@ -2981,9 +2945,6 @@
         )
       )
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "C6") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "C18") (unit 1)
         )
@@ -3014,9 +2975,6 @@
         )
       )
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "#PWR025") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "#PWR060") (unit 1)
         )
@@ -3055,9 +3013,6 @@
     (pin "2" (uuid 9056d3c5-e9bb-4ea5-80bc-a47bc6774ec9))
     (instances
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "F2") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "F2") (unit 1)
         )
@@ -3088,9 +3043,6 @@
         )
       )
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "#PWR070") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "#PWR064") (unit 1)
         )
@@ -3137,9 +3089,6 @@
         )
       )
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "C7") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "C25") (unit 1)
         )
@@ -3170,9 +3119,6 @@
         )
       )
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "#PWR022") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "#PWR059") (unit 1)
         )
@@ -3183,7 +3129,7 @@
   (symbol (lib_id "MCU_ST_STM32F1:STM32F103R8Tx") (at 148.59 213.36 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 41ad5627-82f6-4491-934b-a1ea446c4879)
-    (property "Reference" "U5" (at 133.35 166.37 0)
+    (property "Reference" "U1" (at 133.35 166.37 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "STM32F103R8T6" (at 140.97 210.82 0)
@@ -3270,9 +3216,6 @@
     (pin "9" (uuid 7aa42687-1a22-4f34-b7db-8541c75f95d7))
     (instances
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "U5") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "U1") (unit 1)
         )
@@ -3303,9 +3246,6 @@
         )
       )
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "#PWR021") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "#PWR051") (unit 1)
         )
@@ -3344,9 +3284,6 @@
     (pin "2" (uuid 0b51d9b0-ee55-4b1a-8a3f-a2318ded4536))
     (instances
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "F8") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "F8") (unit 1)
         )
@@ -3393,9 +3330,6 @@
         )
       )
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "C5") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "C24") (unit 1)
         )
@@ -3431,9 +3365,6 @@
     (pin "2" (uuid 8cd219ef-637a-4e3a-9a21-4862e87cfe30))
     (instances
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "R33") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "R33") (unit 1)
         )
@@ -3472,9 +3403,6 @@
     (pin "2" (uuid 5e118451-8a1c-4d29-a434-b2009c3efe5b))
     (instances
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "F10") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "F10") (unit 1)
         )
@@ -3485,7 +3413,7 @@
   (symbol (lib_id "Connector_Generic:Conn_01x01") (at 139.7 63.5 0) (unit 1)
     (in_bom no) (on_board yes) (dnp no)
     (uuid 57b03bcf-8963-4b8c-bef9-a6459339a078)
-    (property "Reference" "J12" (at 142.24 63.5 0)
+    (property "Reference" "J23" (at 142.24 63.5 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "Mounting Hole M5" (at 142.24 64.77 0)
@@ -3509,9 +3437,6 @@
     (pin "1" (uuid 9d6aff1f-4e90-4238-8a70-e828b5b53530))
     (instances
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "J12") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "J23") (unit 1)
         )
@@ -3522,7 +3447,7 @@
   (symbol (lib_id "Connector_Generic:Conn_01x01") (at 139.7 38.1 0) (unit 1)
     (in_bom no) (on_board yes) (dnp no)
     (uuid 57bc178e-fcc1-4cd5-8696-500ee2395edd)
-    (property "Reference" "J2" (at 142.24 38.1 0)
+    (property "Reference" "J13" (at 142.24 38.1 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "Mounting Hole M5" (at 142.24 39.37 0)
@@ -3546,9 +3471,6 @@
     (pin "1" (uuid 917db499-e9b3-4732-81a3-5a70f90527ed))
     (instances
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "J2") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "J13") (unit 1)
         )
@@ -3579,9 +3501,6 @@
         )
       )
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "#PWR022") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "#PWR050") (unit 1)
         )
@@ -3592,7 +3511,7 @@
   (symbol (lib_id "Connector_Generic:Conn_01x01") (at 139.7 58.42 0) (unit 1)
     (in_bom no) (on_board yes) (dnp no)
     (uuid 5f0acb0c-2dcc-4bfe-b64a-e265241ad49e)
-    (property "Reference" "J10" (at 142.24 58.42 0)
+    (property "Reference" "J21" (at 142.24 58.42 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "Mounting Hole M5" (at 142.24 59.69 0)
@@ -3616,9 +3535,6 @@
     (pin "1" (uuid 8aea64d2-fe14-4b38-b416-de80a0a76fb5))
     (instances
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "J10") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "J21") (unit 1)
         )
@@ -3629,7 +3545,7 @@
   (symbol (lib_id "Connector_Generic:Conn_01x01") (at 139.7 45.72 0) (unit 1)
     (in_bom no) (on_board yes) (dnp no)
     (uuid 64988251-ff0e-4509-a753-4d915f385948)
-    (property "Reference" "J5" (at 142.24 45.72 0)
+    (property "Reference" "J16" (at 142.24 45.72 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "Mounting Hole M5" (at 142.24 46.99 0)
@@ -3653,9 +3569,6 @@
     (pin "1" (uuid b88b2097-04a4-4c7b-8c09-17ca7d0a4e20))
     (instances
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "J5") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "J16") (unit 1)
         )
@@ -3702,9 +3615,6 @@
         )
       )
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "C11") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "C22") (unit 1)
         )
@@ -3743,9 +3653,6 @@
     (pin "2" (uuid 83ad0e6f-afaf-4b94-a3d0-5be8a0c50ece))
     (instances
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "F9") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "F9") (unit 1)
         )
@@ -3789,9 +3696,6 @@
         )
       )
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "FB1") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "FB1") (unit 1)
         )
@@ -3822,9 +3726,6 @@
         )
       )
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "#PWR029") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "#PWR058") (unit 1)
         )
@@ -3860,7 +3761,7 @@
   (symbol (lib_id "Connector_Generic:Conn_01x01") (at 139.7 68.58 0) (unit 1)
     (in_bom no) (on_board yes) (dnp no)
     (uuid 7b3dfa68-d69b-434b-81c8-7e7aaa34be3f)
-    (property "Reference" "J14" (at 142.24 68.58 0)
+    (property "Reference" "J25" (at 142.24 68.58 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "Mounting Hole M5" (at 142.24 69.85 0)
@@ -3884,9 +3785,6 @@
     (pin "1" (uuid 17201820-a71f-41e3-b33e-f6c6602ce982))
     (instances
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "J14") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "J25") (unit 1)
         )
@@ -3925,9 +3823,6 @@
     (pin "2" (uuid a32d0037-8314-4b99-b94f-887daf62dab4))
     (instances
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "F3") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "F3") (unit 1)
         )
@@ -3974,9 +3869,6 @@
         )
       )
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "C12") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "C23") (unit 1)
         )
@@ -4023,9 +3915,6 @@
         )
       )
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "C10") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "C21") (unit 1)
         )
@@ -4036,7 +3925,7 @@
   (symbol (lib_id "Connector_Generic:Conn_01x01") (at 139.7 40.64 0) (unit 1)
     (in_bom no) (on_board yes) (dnp no)
     (uuid 94900545-6f5f-4014-96cc-5c5d58f0dc41)
-    (property "Reference" "J3" (at 142.24 40.64 0)
+    (property "Reference" "J14" (at 142.24 40.64 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "Mounting Hole M5" (at 142.24 41.91 0)
@@ -4060,9 +3949,6 @@
     (pin "1" (uuid 3f599c33-e9bc-415e-8c7e-ddead6b9b358))
     (instances
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "J3") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "J14") (unit 1)
         )
@@ -4073,7 +3959,7 @@
   (symbol (lib_id "Connector_Generic:Conn_01x01") (at 139.7 66.04 0) (unit 1)
     (in_bom no) (on_board yes) (dnp no)
     (uuid 9695d856-06c9-42a9-82dd-c92860c2e02e)
-    (property "Reference" "J13" (at 142.24 66.04 0)
+    (property "Reference" "J24" (at 142.24 66.04 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "Mounting Hole M5" (at 142.24 67.31 0)
@@ -4097,9 +3983,6 @@
     (pin "1" (uuid cc532518-7d56-4ac0-a136-6b423f2e4054))
     (instances
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "J13") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "J24") (unit 1)
         )
@@ -4144,9 +4027,6 @@
         )
       )
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "J27") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "J28") (unit 1)
         )
@@ -4177,9 +4057,6 @@
         )
       )
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "#PWR023") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "#PWR065") (unit 1)
         )
@@ -4190,7 +4067,7 @@
   (symbol (lib_id "Connector_Generic:Conn_01x01") (at 139.7 55.88 0) (unit 1)
     (in_bom no) (on_board yes) (dnp no)
     (uuid 9e958905-6c88-46eb-a15b-fe6a6da67570)
-    (property "Reference" "J9" (at 142.24 55.88 0)
+    (property "Reference" "J20" (at 142.24 55.88 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "Mounting Hole M5" (at 142.24 57.15 0)
@@ -4214,9 +4091,6 @@
     (pin "1" (uuid 50124890-484f-48a2-a64d-d3d6cfff962b))
     (instances
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "J9") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "J20") (unit 1)
         )
@@ -4265,9 +4139,6 @@
     (pin "9" (uuid 5aac5e3f-577f-44c6-acc7-577a6cdc8bae))
     (instances
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/61ef8a08-b3c1-45d1-bd6c-3b0bcf3dcd0a"
-          (reference "J31") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "J31") (unit 1)
         )
@@ -4303,7 +4174,7 @@
   (symbol (lib_id "Connector_Generic:Conn_01x04") (at 92.71 100.33 0) (unit 1)
     (in_bom no) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid b18526b0-af01-4b11-bdb9-56b2fdbc5d43)
-    (property "Reference" "J28" (at 95.25 100.33 0)
+    (property "Reference" "J26" (at 95.25 100.33 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "Pin Header 0.1\" 01x04" (at 95.25 102.87 0)
@@ -4330,9 +4201,6 @@
     (pin "4" (uuid ae21169e-dba1-4b75-b44f-ac0bca1a29d0))
     (instances
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/61ef8a08-b3c1-45d1-bd6c-3b0bcf3dcd0a"
-          (reference "J28") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "J26") (unit 1)
         )
@@ -4371,9 +4239,6 @@
     (pin "2" (uuid 16fa1d22-6d63-4268-af5f-09c43a08a34b))
     (instances
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "F12") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "F12") (unit 1)
         )
@@ -4420,9 +4285,6 @@
         )
       )
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "C4") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "C17") (unit 1)
         )
@@ -4453,9 +4315,6 @@
         )
       )
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "#PWR017") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "#PWR052") (unit 1)
         )
@@ -4486,9 +4345,6 @@
         )
       )
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "#PWR021") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "#PWR061") (unit 1)
         )
@@ -4519,9 +4375,6 @@
         )
       )
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "#PWR018") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "#PWR055") (unit 1)
         )
@@ -4560,9 +4413,6 @@
     (pin "2" (uuid 8146768f-077a-49e5-aee6-f1e67362dda7))
     (instances
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "F6") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "F6") (unit 1)
         )
@@ -4609,9 +4459,6 @@
         )
       )
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "C9") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "C20") (unit 1)
         )
@@ -4642,9 +4489,6 @@
         )
       )
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "#PWR026") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "#PWR056") (unit 1)
         )
@@ -4680,9 +4524,6 @@
     (pin "2" (uuid 87716375-4765-4533-af0a-973f9a12a035))
     (instances
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "NT1") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "NT1") (unit 1)
         )
@@ -4721,9 +4562,6 @@
     (pin "2" (uuid 71098e30-00f6-4b20-ac3f-1938956e936c))
     (instances
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "F1") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "F1") (unit 1)
         )
@@ -4734,7 +4572,7 @@
   (symbol (lib_id "Connector_Generic:Conn_01x01") (at 139.7 60.96 0) (unit 1)
     (in_bom no) (on_board yes) (dnp no)
     (uuid ddf7be6c-516e-4e2e-9aa1-22f1fd4e3de6)
-    (property "Reference" "J11" (at 142.24 60.96 0)
+    (property "Reference" "J22" (at 142.24 60.96 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "Mounting Hole M5" (at 142.24 62.23 0)
@@ -4758,9 +4596,6 @@
     (pin "1" (uuid 805c0a46-9ab7-4dec-a297-288776c2beed))
     (instances
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "J11") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "J22") (unit 1)
         )
@@ -4799,9 +4634,6 @@
     (pin "2" (uuid 5f4e69fb-e400-45e0-bcf7-4fef277c94dc))
     (instances
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "F13") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "F13") (unit 1)
         )
@@ -4832,9 +4664,6 @@
         )
       )
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "#PWR024") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "#PWR053") (unit 1)
         )
@@ -4845,7 +4674,7 @@
   (symbol (lib_id "Connector_Generic:Conn_01x04") (at 44.45 119.38 0) (unit 1)
     (in_bom no) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid eb2b690a-b1ee-47ab-b589-3d7e4779aecd)
-    (property "Reference" "J28" (at 46.99 119.38 0)
+    (property "Reference" "J27" (at 46.99 119.38 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "Pin Header 0.1\" 01x04" (at 46.99 121.92 0)
@@ -4872,9 +4701,6 @@
     (pin "4" (uuid f109a4f1-8abf-46fe-916e-fbe4d1996fcc))
     (instances
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/61ef8a08-b3c1-45d1-bd6c-3b0bcf3dcd0a"
-          (reference "J28") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "J27") (unit 1)
         )
@@ -4913,9 +4739,6 @@
     (pin "2" (uuid c2a98d9d-7553-4c8e-8939-99dfc977dbce))
     (instances
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "F4") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "F4") (unit 1)
         )
@@ -4926,7 +4749,7 @@
   (symbol (lib_id "Connector_Generic:Conn_01x01") (at 139.7 50.8 0) (unit 1)
     (in_bom no) (on_board yes) (dnp no)
     (uuid f5f415eb-bc4d-49dc-b842-4a105df00448)
-    (property "Reference" "J7" (at 142.24 50.8 0)
+    (property "Reference" "J18" (at 142.24 50.8 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "Mounting Hole M5" (at 142.24 52.07 0)
@@ -4950,9 +4773,6 @@
     (pin "1" (uuid b335dbff-b274-4fd3-88a8-fd8cc198b724))
     (instances
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "J7") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "J18") (unit 1)
         )
@@ -4988,9 +4808,6 @@
     (pin "2" (uuid 5876a53e-c9fb-4675-805c-8e97eac9d618))
     (instances
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "JP1") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "JP1") (unit 1)
         )
@@ -5034,9 +4851,6 @@
         )
       )
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "Y1") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "Y1") (unit 1)
         )
@@ -5047,7 +4861,7 @@
   (symbol (lib_id "Connector_Generic:Conn_01x01") (at 139.7 43.18 0) (unit 1)
     (in_bom no) (on_board yes) (dnp no)
     (uuid fc57cba3-2654-419d-b519-7dee7077dd45)
-    (property "Reference" "J4" (at 142.24 43.18 0)
+    (property "Reference" "J15" (at 142.24 43.18 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "Mounting Hole M5" (at 142.24 44.45 0)
@@ -5071,9 +4885,6 @@
     (pin "1" (uuid 2c211827-2f99-4938-93a6-97bce072061e))
     (instances
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "J4") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "J15") (unit 1)
         )
@@ -5112,9 +4923,6 @@
     (pin "2" (uuid cb96ebfe-888a-483d-a727-9a5baaf30373))
     (instances
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "F5") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158"
           (reference "F5") (unit 1)
         )

@@ -464,7 +464,7 @@
   (symbol (lib_id "power:GND") (at 119.38 95.25 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 33a82c58-f648-4900-9c9b-ca732447f0e6)
-    (property "Reference" "#PWR03" (at 119.38 101.6 0)
+    (property "Reference" "#PWR036" (at 119.38 101.6 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 119.38 97.79 90)
@@ -479,9 +479,6 @@
     (pin "1" (uuid 4ccc615c-f26d-4e5a-a11d-3b74d50383e9))
     (instances
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "#PWR03") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158/396ddede-e7b2-47c7-98e8-42b3988715ee"
           (reference "#PWR036") (unit 1)
         )
@@ -596,7 +593,7 @@
   (symbol (lib_id "Connector_Generic:Conn_01x02") (at 135.89 85.09 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 60c97c08-2f43-4bb1-9cd2-664c7051c4ab)
-    (property "Reference" "J15" (at 138.43 85.09 0)
+    (property "Reference" "J9" (at 138.43 85.09 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "JST S2B-PH-SM4-TB" (at 138.43 87.63 0)
@@ -621,9 +618,6 @@
     (pin "2" (uuid 64ac8984-085b-44ce-9f71-016042a2a3d4))
     (instances
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "J15") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158/396ddede-e7b2-47c7-98e8-42b3988715ee"
           (reference "J9") (unit 1)
         )
@@ -803,7 +797,7 @@
   (symbol (lib_id "power:GND") (at 76.2 90.17 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid c751d82b-280c-42e9-b3ad-1eee18bccd1d)
-    (property "Reference" "#PWR03" (at 76.2 96.52 0)
+    (property "Reference" "#PWR035" (at 76.2 96.52 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 76.2 92.71 90)
@@ -818,9 +812,6 @@
     (pin "1" (uuid e668adc9-d219-4f1a-90e8-6b5e00cbedfd))
     (instances
       (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
-          (reference "#PWR03") (unit 1)
-        )
         (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158/396ddede-e7b2-47c7-98e8-42b3988715ee"
           (reference "#PWR035") (unit 1)
         )
