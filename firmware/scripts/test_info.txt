@@ -1,0 +1,41 @@
+--- TEST 1 ---
+File: candump-2024-04-06 211554.log
+Starting water temp: 46.0C
+Start time: 9:18pm
+Ending temp: 46.2C
+Ending time: 9:24
+(timestamp 1712453035.319857)
+
+Unsure of calibration accuracy for this test. The first segment cooled much less; this indicates that higher flow rate is required.
+--- TEST 2 ---
+File: candump-2024-04-06_214447.log 
+Start time: 9:45
+(timestamp 1712454359.600237)
+Start water temp: 48.4
+Temp switch time: 9:51
+(timestamp 1712454697.084706)
+flow rate tests: 5gal in 1:18 (14.8in^3/sec)
+switched to cool water.
+Flow rate tests: 5gal in 1:30 (12.8in^3/sec)
+outlet water temp 25.5 30 sec after start
+Water flow stop time: 9:55
+(timestamp 1712454924.238978)
+End inlet water temp: 11.8C
+
+It appears the segment wasn't calibrated well at room temperature; it thought it started the test out at 33C :(
+
+--- TEST 3 ---
+File: candump-2024-04-06_221804.log
+Starting time: 10:18
+(timestamp 1712456355.978423)
+Initial water temp: 47.3C
+Room temp: 24.5C
+Flow rate: 1:25 for 5gal (13.6in^3/s)
+Switched to cool water at 10:23
+(timestamp 1712456619.035202)
+flow rate: 1:40 for 5gal (11.55 in^3/sec)
+End time: 10:29
+(Timestamp 1712456964.507980)
+End water temp: 10.3C
+
+This test went much more smoothly. The cell temperature sensors were calibrated to room temp (24C) a few minutes before the test.

@@ -104,25 +104,48 @@ volatile uint16_t adc_readings[N_ADC_CHANNELS];
 
 int16_t temperatures[N_ADC_CHANNELS];
 
+// Orion BMS CAN data
+uint8_t orion_data_ready = 0; // stores whether data is available to send yet
+const uint8_t thermistor_module_number = 0;
+int8_t pack_min_temperature; // in degrees C
+uint8_t pack_min_idx;
+int8_t pack_max_temperature; // in degrees C
+uint8_t pack_max_idx;
+int32_t pack_temp_sum; // for calculating average temperature
+uint8_t pack_temp_samples;
+const uint8_t thermistor_count = 12 * 7;
+
+const uint8_t orion_bms_address_claim[8] = {
+  0xF3, 0x00, 0x80, 0xF3, 0x00, 0x40, 0x1E, 0x90
+};
+
+
 uint32_t write_cal_data(struct ThermistorCal_T* data);
+
 
 float compute_resistance(uint16_t adc_reading) {
   float adc_float = (float) adc_reading;
-  float voltage_fac = adc_reading / ((float) 0x1000); // input voltage as a fraction of VDDA
+  float voltage_fac = adc_float / ((float) 0x1000); // input voltage as a fraction of VDDA
   const float ref_resistance = 10000.0; // precision reference resistor value
   float rtd_resistance = ref_resistance * ((1.0 / voltage_fac) - 1);
   return rtd_resistance;
 }
 
+float c2k(float c) {
+    return c + 273.15;
+}
+float k2c(float k) {
+    return k - 273.15;
+}
 
 struct SteinhartHartParameters compute_parameters(float r1, float t1, float r2, float t2, float r3, float t3) {
     float ln_r1 = logf(r1);
     float ln_r2 = logf(r2);
     float ln_r3 = logf(r3);
 
-    float Y_1 = 1.0 / t1;
-    float Y_2 = 1.0 / t2;
-    float Y_3 = 1.0 / t3;
+    float Y_1 = 1.0 / c2k(t1);
+    float Y_2 = 1.0 / c2k(t2);
+    float Y_3 = 1.0 / c2k(t3);
 
     float gamma_2 = (Y_2 - Y_1) / (ln_r2 - ln_r1);
     float gamma_3 = (Y_3 - Y_1) / (ln_r3 - ln_r1);
@@ -139,8 +162,43 @@ struct SteinhartHartParameters compute_parameters(float r1, float t1, float r2, 
 
 float compute_temperature(struct SteinhartHartParameters* p, float r) {
   float ln_r = logf(r);
-  float t_inv = p->A + p->B * ln_r + p->C * ln_r * ln_r;
-  return 1.0 / t_inv;
+  float t_inv = p->A + p->B * ln_r + p->C * ln_r * ln_r * ln_r;
+  float temp_kelvin = 1.0 / t_inv;
+  return k2c(temp_kelvin);
+}
+
+void can_send_float(uint8_t errno, float f1) {
+  // Message header
+  CAN_TxHeaderTypeDef m;
+  // Use standard ID
+  m.IDE = CAN_ID_STD;
+  // Set message ID
+  m.StdId = CELL_TAP_CAL_RESP_ID + BOARD_ID;
+  // Use CAN_RTR_DATA to transmit data
+  // We may use CAN_RTR_REMOTE to request things to send data in the future
+  m.RTR = CAN_RTR_DATA;
+  // Amount of data
+  m.DLC = 8;
+
+  // Data to send
+  uint8_t data_u8[8];
+
+  uint32_t* int_value = (uint32_t*) &f1;
+  data_u8[4] = (*int_value >> 24) & 0xff;
+  data_u8[5] = (*int_value >> 16) & 0xff;
+  data_u8[6] = (*int_value >> 8) & 0xff;
+  data_u8[7] = (*int_value) & 0xff;
+  data_u8[0] = errno;
+  data_u8[1] = 0;
+  data_u8[2] = 0;
+  data_u8[3] = 0;
+
+  // Send a message
+  uint32_t mailbox;
+  HAL_CAN_AddTxMessage(&hcan, &m, data_u8, &mailbox);
+  
+  // Wait for message to be sent. This is usually not needed.
+  while (HAL_CAN_IsTxMessagePending(&hcan, mailbox));
 }
 
 uint8_t cal_cmd(uint8_t cmd, float value) {
@@ -177,40 +235,29 @@ uint8_t cal_cmd(uint8_t cmd, float value) {
     case 4:
       // Verify that all three calibration points have been read, otherwise the result will be nonsense
       if(current_cal.temp_calibrations[0] && current_cal.temp_calibrations[1] && current_cal.temp_calibrations[2]) {
-      
-        // Sort temperatues low to high
-        uint8_t low_cal_idx = 0;
-        uint8_t mid_cal_idx = 1;
-        uint8_t high_cal_idx = 2;
-
-        if(current_cal.temp_calibrations[low_cal_idx] > current_cal.temp_calibrations[high_cal_idx]) {
-          float t = high_cal_idx;
-          high_cal_idx = low_cal_idx;
-          low_cal_idx = t;
-        }
-        if(current_cal.temp_calibrations[low_cal_idx] > current_cal.temp_calibrations[mid_cal_idx]) {
-          float t = mid_cal_idx;
-          mid_cal_idx = low_cal_idx;
-          low_cal_idx = t;
-        }
-        if(current_cal.temp_calibrations[mid_cal_idx] > current_cal.temp_calibrations[high_cal_idx]) {
-          float t = high_cal_idx;
-          high_cal_idx = mid_cal_idx;
-          mid_cal_idx = t;
-        }
-        float t1 = current_cal.temp_calibrations[low_cal_idx];
-        float t2 = current_cal.temp_calibrations[mid_cal_idx];
-        float t3 = current_cal.temp_calibrations[high_cal_idx];
+        float t1 = current_cal.temps[0];
+        float t2 = current_cal.temps[1];
+        float t3 = current_cal.temps[2];
         // now low/mid/high_cal_idx should be in order
         for(uint8_t i = 0; i < N_ADC_CHANNELS; ++i) {
-          float r1 = compute_resistance(current_cal.adc_readings[i][low_cal_idx]);
-          float r2 = compute_resistance(current_cal.adc_readings[i][mid_cal_idx]);
-          float r3 = compute_resistance(current_cal.adc_readings[i][high_cal_idx]);
+          float r1 = compute_resistance(current_cal.adc_readings[i][0]);
+          float r2 = compute_resistance(current_cal.adc_readings[i][1]);
+          float r3 = compute_resistance(current_cal.adc_readings[i][2]);
+
+          // previous debugging code
+          // can_send_float(200, r1);
+          // can_send_float(201, t1);
+          // can_send_float(202, r2);
+          // can_send_float(203, t2);
+          // can_send_float(204, r3);
+          // can_send_float(205, t3);
+
           struct SteinhartHartParameters params = compute_parameters(r1, t1, r2, t2, r3, t3);
           if(isnan(params.A) || isnan(params.B) || isnan(params.C)) {
             errno = 5;
             break;
           }
+
           current_cal.parameters[i] = params;
         }
       } else {
@@ -222,6 +269,35 @@ uint8_t cal_cmd(uint8_t cmd, float value) {
 
       if(write_cal_data(&current_cal) > 0) errno = 1;
       break;
+    case 5: // dump out calibration values
+        // ABC Values
+        for(uint8_t i = 0; i < N_ADC_CHANNELS; ++i) {
+          can_send_float(20 + i, current_cal.parameters[i].A);
+        }
+        for(uint8_t i = 0; i < N_ADC_CHANNELS; ++i) {
+          can_send_float(40 + i, current_cal.parameters[i].B);
+        }
+        for(uint8_t i = 0; i < N_ADC_CHANNELS; ++i) {
+          can_send_float(60 + i, current_cal.parameters[i].C);
+        }
+
+        // Calib. temps
+        can_send_float(80, current_cal.temps[0]);
+        can_send_float(81, current_cal.temps[1]);
+        can_send_float(82, current_cal.temps[2]);
+
+        // ADC Readings
+        for(uint8_t i = 0; i < N_ADC_CHANNELS; ++i) {
+          can_send_float(100 + i, (float) current_cal.adc_readings[i][0]);
+        }
+        for(uint8_t i = 0; i < N_ADC_CHANNELS; ++i) {
+          can_send_float(120 + i, (float) current_cal.adc_readings[i][1]);
+        }
+        for(uint8_t i = 0; i < N_ADC_CHANNELS; ++i) {
+          can_send_float(140 + i, (float) current_cal.adc_readings[i][2]);
+        }
+      break;
+
     default:
       errno = 2;
   }
@@ -246,7 +322,34 @@ uint8_t cal_cmd(uint8_t cmd, float value) {
   // Send a message
   uint32_t mailbox;
   HAL_CAN_AddTxMessage(&hcan, &m, data, &mailbox);
+  // Wait for message to be sent. This is usually not needed.
+  while (HAL_CAN_IsTxMessagePending(&hcan, mailbox));
   return 0;
+}
+
+void update_orion_bms_data(int8_t t, uint8_t idx) {
+  pack_temp_sum += t;
+  pack_temp_samples ++;
+  if(t < pack_min_temperature) {
+    pack_min_temperature = t;
+    pack_min_idx = idx;
+  }
+  if(t > pack_max_temperature) {
+    pack_max_temperature = t;
+    pack_max_idx = idx;
+  }
+}
+
+void reset_orion_bms_data(void) {
+  pack_max_temperature = INT8_MIN;
+  pack_min_temperature = INT8_MAX;
+  pack_temp_sum = 0;
+  pack_temp_samples = 0;
+
+  for(uint8_t i = 0; i < 12; ++i) {
+    int8_t temp_i8 = (int8_t)(temperatures[i] / 100);
+    update_orion_bms_data(temp_i8, i);
+  }
 }
 
 // CAN Interrupt handler. Called whenever a new CAN frame is received.
@@ -275,13 +378,93 @@ void can_irq(CAN_HandleTypeDef *pcan) {
         uint32_t int_value = (data[1] << 24) + (data[2] << 16) + (data[3] << 8) + data[4];
         float value = *(float *) &int_value; // reinterpret bytes as float without doing conversion
 
-        uint8_t errno = cal_cmd(command, value);
+        cal_cmd(command, value);
 
       default:
-        // Default behavior for unrecognized CAN IDs. Probably just ignore.
+        // Board 0 collects data and sends it to the orion BMS
+        if(BOARD_ID == 0){
+          // check if the message is from a segment board
+          if(msg.StdId >= CELL_TAP_1_1_ID && msg.StdId < CELL_TAP_7_1_ID + 4) {
+            if(msg.StdId % 4 != 3) { // don't read the board thermistors, only cells
+              uint8_t board_no = (msg.StdId - CELL_TAP_1_1_ID) / 4;
+              uint8_t message_no = msg.StdId % 4;
+              uint8_t start_thermistor_idx = board_no * 12 + message_no * 4;
+              // record max/min temperature
+              int16_t* temps = (int16_t*) data;
+              for(uint8_t i = 0; i < 4; ++i) {
+                int8_t temp_i8 = (int8_t) (temps[i] / 100);
+                update_orion_bms_data(temp_i8, start_thermistor_idx + i);
+              }
+            }
+          }
+
+        }
         break;
       }
   }
+}
+
+void can_transmit_orion_bms(void) {
+  // Message header
+  CAN_TxHeaderTypeDef m;
+  // Use standard ID
+  m.IDE = CAN_ID_EXT;
+  // Set message ID
+  m.ExtId = 0x1839F380;
+  // Use CAN_RTR_DATA to transmit data
+  // We may use CAN_RTR_REMOTE to request things to send data in the future
+  m.RTR = CAN_RTR_DATA;
+  // Amount of data
+  m.DLC = 8;
+
+  // Data to send
+  uint8_t data[8];
+
+  int32_t average_temp = pack_temp_sum / pack_temp_samples;
+  data[0] = thermistor_module_number;
+  data[1] = pack_min_temperature;
+  data[2] = pack_max_temperature;
+  data[3] = (int8_t) average_temp;
+  data[4] = thermistor_count;
+  data[5] = pack_max_idx;
+  data[6] = pack_min_idx;
+
+  // Checksum 8-bit
+  // (sum of all bytes + 0x39 + length)
+  uint8_t checksum = 0;
+  for(int i = 0; i < 7; ++i) {
+    checksum += data[i];
+  }
+  checksum += 0x39;
+  checksum += 8;
+
+  data[7] = checksum;
+
+  // Send a message
+  uint32_t mailbox;
+  HAL_CAN_AddTxMessage(&hcan, &m, data, &mailbox);
+  // Wait for message to be sent. This is usually not needed.
+  while (HAL_CAN_IsTxMessagePending(&hcan, mailbox));
+}
+
+void can_transmit_orion_bms_address_claim(void) {
+  // Message header
+  CAN_TxHeaderTypeDef m;
+  // Use standard ID
+  m.IDE = CAN_ID_EXT;
+  // Set message ID
+  m.ExtId = 0x18EEFF80;
+  // Use CAN_RTR_DATA to transmit data
+  // We may use CAN_RTR_REMOTE to request things to send data in the future
+  m.RTR = CAN_RTR_DATA;
+  // Amount of data
+  m.DLC = 8;
+
+  // Send a message
+  uint32_t mailbox;
+  HAL_CAN_AddTxMessage(&hcan, &m, orion_bms_address_claim, &mailbox);
+  // Wait for message to be sent. This is usually not needed.
+  while (HAL_CAN_IsTxMessagePending(&hcan, mailbox));
 }
 
 // We only send one CAN message each time to save CAN bus resources.
@@ -360,9 +543,30 @@ void can_transmit_temperatures(void) {
   // Send a message
   uint32_t mailbox;
   HAL_CAN_AddTxMessage(&hcan, &m, data, &mailbox);
+  // Wait for message to be sent. This is usually not needed.
+  while (HAL_CAN_IsTxMessagePending(&hcan, mailbox));
+  
+  // Board 0 sends data to the BMS
+  if(BOARD_ID == 0) {
+    // only send orion data once all data is out
+    if(can_message_idx == 3) {
+      orion_data_ready = 1;
+    }
+
+    if(orion_data_ready) {
+      can_transmit_orion_bms();
+      reset_orion_bms_data();
+    }
+
+    // send address claim
+    if(can_message_idx % 2 == 0) {
+      can_transmit_orion_bms_address_claim();
+    }
+  }
   
   can_message_idx = (can_message_idx + 1) % 4;
 }
+
 
 uint8_t __fls_wr(const uint32_t *page, const uint32_t *buf, uint32_t len)
 {
@@ -451,6 +655,11 @@ int main(void)
 
   /* USER CODE BEGIN SysInit */
 
+  if(FLASH_VARS->board.id >= 10 || FLASH_VARS->board.id <= 16) {
+    // Board id in the proper range :)
+      BOARD_ID = FLASH_VARS->board.id - 10;
+  }
+
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
@@ -462,10 +671,6 @@ int main(void)
   
   HAL_ADCEx_Calibration_Start(&hadc1);
 
-  if(FLASH_VARS->board.id < 10 || FLASH_VARS->board.id > 16) {
-    // Board id not in the proper range :(
-      BOARD_ID = FLASH_VARS->board.id - 10;
-  }
 
   for(uint8_t i = 0; i < 12; ++i) {
     HAL_GPIO_WritePin(status_ports[i], status_pins[i], GPIO_PIN_SET);
@@ -475,7 +680,8 @@ int main(void)
     HAL_GPIO_WritePin(status_ports[i], status_pins[i], GPIO_PIN_RESET);
     HAL_Delay(50);
   }
-  
+
+  struct ThermistorCal_T* current_cal = CAL_TABLE;
 
   /* USER CODE END 2 */
 
@@ -484,12 +690,19 @@ int main(void)
   while (1)
   {
     HAL_ADC_Start_DMA(&hadc1, (uint32_t*) adc_readings, N_ADC_CHANNELS);
-    HAL_Delay(10);
+    HAL_Delay(100);
 
     for(uint8_t i = 0; i < N_ADC_CHANNELS; ++i) {
       uint8_t channel = adc_to_channel_mapping[i];
       uint16_t reading = adc_readings[i];
-      temperatures[channel] = reading; // todo calibration, conversion
+
+      if(current_cal->abc_calibration) {
+        float resistance = compute_resistance(reading);
+        float temp = compute_temperature(&(current_cal->parameters[i]), resistance);
+        temperatures[channel] = (int16_t) (temp * 100.0);
+      } else {
+        temperatures[channel] = reading;
+      }
       if(channel < N_STATUS_LEDS){
         HAL_GPIO_WritePin(status_ports[channel], status_pins[channel], reading < ADC_ERR_LOW || reading > ADC_ERR_HIGH);
       }
@@ -748,7 +961,7 @@ static void MX_CAN_Init(void)
   hcan.Init.TimeTriggeredMode = DISABLE;
   hcan.Init.AutoBusOff = DISABLE;
   hcan.Init.AutoWakeUp = DISABLE;
-  hcan.Init.AutoRetransmission = DISABLE;
+  hcan.Init.AutoRetransmission = ENABLE;
   hcan.Init.ReceiveFifoLocked = DISABLE;
   hcan.Init.TransmitFifoPriority = DISABLE;
   if (HAL_CAN_Init(&hcan) != HAL_OK)
