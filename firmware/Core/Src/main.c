@@ -558,7 +558,7 @@ void can_transmit_temperatures(void) {
       reset_orion_bms_data();
     }
 
-    // send address claim
+    // send address claim (every 200ms)
     if(can_message_idx % 2 == 0) {
       can_transmit_orion_bms_address_claim();
     }
