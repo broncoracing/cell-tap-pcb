@@ -392,6 +392,7 @@ void can_irq(CAN_HandleTypeDef *pcan) {
               // record max/min temperature
               int16_t* temps = (int16_t*) data;
               for(uint8_t i = 0; i < 4; ++i) {
+                int16_t temp = __builtin_bswap16(temps[i]);
                 int8_t temp_i8 = (int8_t) (temps[i] / 100);
                 update_orion_bms_data(temp_i8, start_thermistor_idx + i);
               }
