@@ -1,477 +1,1203 @@
-(kicad_sch (version 20230121) (generator eeschema)
-
-  (uuid d9106ea9-1e58-4f5c-856e-e20d8ff7a604)
-
-  (paper "A4")
-
-  (lib_symbols
-    (symbol "Device:C_Small" (pin_numbers hide) (pin_names (offset 0.254) hide) (in_bom yes) (on_board yes)
-      (property "Reference" "C" (at 0.254 1.778 0)
-        (effects (font (size 1.27 1.27)) (justify left))
-      )
-      (property "Value" "C_Small" (at 0.254 -2.032 0)
-        (effects (font (size 1.27 1.27)) (justify left))
-      )
-      (property "Footprint" "" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "Datasheet" "~" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "ki_keywords" "capacitor cap" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "ki_description" "Unpolarized capacitor, small symbol" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "ki_fp_filters" "C_*" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (symbol "C_Small_0_1"
-        (polyline
-          (pts
-            (xy -1.524 -0.508)
-            (xy 1.524 -0.508)
-          )
-          (stroke (width 0.3302) (type default))
-          (fill (type none))
-        )
-        (polyline
-          (pts
-            (xy -1.524 0.508)
-            (xy 1.524 0.508)
-          )
-          (stroke (width 0.3048) (type default))
-          (fill (type none))
-        )
-      )
-      (symbol "C_Small_1_1"
-        (pin passive line (at 0 2.54 270) (length 2.032)
-          (name "~" (effects (font (size 1.27 1.27))))
-          (number "1" (effects (font (size 1.27 1.27))))
-        )
-        (pin passive line (at 0 -2.54 90) (length 2.032)
-          (name "~" (effects (font (size 1.27 1.27))))
-          (number "2" (effects (font (size 1.27 1.27))))
-        )
-      )
-    )
-    (symbol "Device:R_Small" (pin_numbers hide) (pin_names (offset 0.254) hide) (in_bom yes) (on_board yes)
-      (property "Reference" "R" (at 0.762 0.508 0)
-        (effects (font (size 1.27 1.27)) (justify left))
-      )
-      (property "Value" "R_Small" (at 0.762 -1.016 0)
-        (effects (font (size 1.27 1.27)) (justify left))
-      )
-      (property "Footprint" "" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "Datasheet" "~" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "ki_keywords" "R resistor" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "ki_description" "Resistor, small symbol" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "ki_fp_filters" "R_*" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (symbol "R_Small_0_1"
-        (rectangle (start -0.762 1.778) (end 0.762 -1.778)
-          (stroke (width 0.2032) (type default))
-          (fill (type none))
-        )
-      )
-      (symbol "R_Small_1_1"
-        (pin passive line (at 0 2.54 270) (length 0.762)
-          (name "~" (effects (font (size 1.27 1.27))))
-          (number "1" (effects (font (size 1.27 1.27))))
-        )
-        (pin passive line (at 0 -2.54 90) (length 0.762)
-          (name "~" (effects (font (size 1.27 1.27))))
-          (number "2" (effects (font (size 1.27 1.27))))
-        )
-      )
-    )
-    (symbol "Device:Thermistor" (pin_numbers hide) (pin_names (offset 0)) (in_bom yes) (on_board yes)
-      (property "Reference" "TH" (at 2.54 1.27 90)
-        (effects (font (size 1.27 1.27)))
-      )
-      (property "Value" "Thermistor" (at -2.54 0 90)
-        (effects (font (size 1.27 1.27)) (justify bottom))
-      )
-      (property "Footprint" "" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "Datasheet" "~" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "ki_keywords" "R res thermistor" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "ki_description" "Temperature dependent resistor" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "ki_fp_filters" "R_*" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (symbol "Thermistor_0_1"
-        (rectangle (start -1.016 2.54) (end 1.016 -2.54)
-          (stroke (width 0.2032) (type default))
-          (fill (type none))
-        )
-        (polyline
-          (pts
-            (xy -1.905 3.175)
-            (xy -1.905 1.905)
-            (xy 1.905 -1.905)
-            (xy 1.905 -3.175)
-            (xy 1.905 -3.175)
-          )
-          (stroke (width 0.254) (type default))
-          (fill (type none))
-        )
-      )
-      (symbol "Thermistor_1_1"
-        (pin passive line (at 0 5.08 270) (length 2.54)
-          (name "~" (effects (font (size 1.27 1.27))))
-          (number "1" (effects (font (size 1.27 1.27))))
-        )
-        (pin passive line (at 0 -5.08 90) (length 2.54)
-          (name "~" (effects (font (size 1.27 1.27))))
-          (number "2" (effects (font (size 1.27 1.27))))
-        )
-      )
-    )
-    (symbol "power:+3.3VA" (power) (pin_names (offset 0)) (in_bom yes) (on_board yes)
-      (property "Reference" "#PWR" (at 0 -3.81 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "Value" "+3.3VA" (at 0 3.556 0)
-        (effects (font (size 1.27 1.27)))
-      )
-      (property "Footprint" "" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "Datasheet" "" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "ki_keywords" "global power" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "ki_description" "Power symbol creates a global label with name \"+3.3VA\"" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (symbol "+3.3VA_0_1"
-        (polyline
-          (pts
-            (xy -0.762 1.27)
-            (xy 0 2.54)
-          )
-          (stroke (width 0) (type default))
-          (fill (type none))
-        )
-        (polyline
-          (pts
-            (xy 0 0)
-            (xy 0 2.54)
-          )
-          (stroke (width 0) (type default))
-          (fill (type none))
-        )
-        (polyline
-          (pts
-            (xy 0 2.54)
-            (xy 0.762 1.27)
-          )
-          (stroke (width 0) (type default))
-          (fill (type none))
-        )
-      )
-      (symbol "+3.3VA_1_1"
-        (pin power_in line (at 0 0 90) (length 0) hide
-          (name "+3.3VA" (effects (font (size 1.27 1.27))))
-          (number "1" (effects (font (size 1.27 1.27))))
-        )
-      )
-    )
-    (symbol "power:GND" (power) (pin_names (offset 0)) (in_bom yes) (on_board yes)
-      (property "Reference" "#PWR" (at 0 -6.35 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "Value" "GND" (at 0 -3.81 0)
-        (effects (font (size 1.27 1.27)))
-      )
-      (property "Footprint" "" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "Datasheet" "" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "ki_keywords" "global power" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "ki_description" "Power symbol creates a global label with name \"GND\" , ground" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (symbol "GND_0_1"
-        (polyline
-          (pts
-            (xy 0 0)
-            (xy 0 -1.27)
-            (xy 1.27 -1.27)
-            (xy 0 -2.54)
-            (xy -1.27 -1.27)
-            (xy 0 -1.27)
-          )
-          (stroke (width 0) (type default))
-          (fill (type none))
-        )
-      )
-      (symbol "GND_1_1"
-        (pin power_in line (at 0 0 270) (length 0) hide
-          (name "GND" (effects (font (size 1.27 1.27))))
-          (number "1" (effects (font (size 1.27 1.27))))
-        )
-      )
-    )
-  )
-
-  (junction (at 157.48 100.33) (diameter 0) (color 0 0 0 0)
-    (uuid 6f83a1f0-f6fb-4f54-9f43-2bae7728c45c)
-  )
-  (junction (at 157.48 101.6) (diameter 0) (color 0 0 0 0)
-    (uuid a0b0eb7c-811d-440d-8a0f-369787d9c9cb)
-  )
-  (junction (at 157.48 111.76) (diameter 0) (color 0 0 0 0)
-    (uuid fdcfde2c-f86d-45fc-83b8-4b80c771d5f9)
-  )
-
-  (wire (pts (xy 157.48 101.6) (xy 168.91 101.6))
-    (stroke (width 0) (type default))
-    (uuid 4108401e-d0b1-4c40-b3b4-b39dd00507cc)
-  )
-  (wire (pts (xy 157.48 87.63) (xy 157.48 88.9))
-    (stroke (width 0) (type default))
-    (uuid 62473a56-646f-4942-8c72-9778f1189cd7)
-  )
-  (wire (pts (xy 157.48 93.98) (xy 157.48 100.33))
-    (stroke (width 0) (type default))
-    (uuid 84f4ea72-b597-4719-a7a3-5ca48cef95db)
-  )
-  (wire (pts (xy 153.67 100.33) (xy 157.48 100.33))
-    (stroke (width 0) (type default))
-    (uuid ab94aea6-c759-47af-bd89-6efe7f3b3a3d)
-  )
-  (wire (pts (xy 157.48 109.22) (xy 157.48 111.76))
-    (stroke (width 0) (type default))
-    (uuid b4e95c26-8881-4865-b503-ea74d6cc0c93)
-  )
-  (wire (pts (xy 157.48 100.33) (xy 157.48 101.6))
-    (stroke (width 0) (type default))
-    (uuid d26bdb09-fbd9-41dd-9813-96c0db46df7b)
-  )
-  (wire (pts (xy 157.48 101.6) (xy 157.48 104.14))
-    (stroke (width 0) (type default))
-    (uuid d79c991c-c348-4cf2-b29d-8599de006351)
-  )
-  (wire (pts (xy 157.48 111.76) (xy 168.91 111.76))
-    (stroke (width 0) (type default))
-    (uuid e7ad5947-17f7-4c6b-afd8-30d8a0b311fa)
-  )
-
-  (hierarchical_label "TEMP" (shape input) (at 153.67 100.33 180) (fields_autoplaced)
-    (effects (font (size 1.27 1.27)) (justify right))
-    (uuid d32e1c07-352b-4300-8895-416fe31190a1)
-  )
-
-  (symbol (lib_id "Device:R_Small") (at 157.48 91.44 0) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
-    (uuid 3af9d1d4-64f7-42e5-968b-99ee555a5d28)
-    (property "Reference" "R31" (at 160.02 90.17 0)
-      (effects (font (size 1.27 1.27)) (justify left))
-    )
-    (property "Value" "10k 0.1%" (at 160.02 92.71 0)
-      (effects (font (size 1.27 1.27)) (justify left))
-    )
-    (property "Footprint" "Resistor_SMD:R_0603_1608Metric" (at 157.48 91.44 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Datasheet" "~" (at 157.48 91.44 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "LibRef" "" (at 157.48 91.44 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "SKU" "" (at 157.48 91.44 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Supplier" "" (at 157.48 91.44 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid 1eebf8ac-8ac4-4870-b65f-20d78eb35ada))
-    (pin "2" (uuid 82e01003-839e-4cb1-aa6c-e31bf8a72a1b))
-    (instances
-      (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158/73c1ffb9-0c9c-4017-81f0-278e7ae6f0ea"
-          (reference "R31") (unit 1)
-        )
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158/b617da6b-22d1-4740-87e8-7e95f36eceb5"
-          (reference "R1") (unit 1)
-        )
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158/95241a03-0a6e-4bbf-acbc-540edf19a6f0"
-          (reference "R7") (unit 1)
-        )
-      )
-    )
-  )
-
-  (symbol (lib_id "Device:Thermistor") (at 168.91 106.68 0) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
-    (uuid 4d5c31fc-322a-4831-aeba-f87a3656c7fc)
-    (property "Reference" "TH4" (at 172.72 105.41 0)
-      (effects (font (size 1.27 1.27)) (justify left))
-    )
-    (property "Value" "10k NTC ERT-J1VR103J" (at 172.72 107.95 0)
-      (effects (font (size 1.27 1.27)) (justify left))
-    )
-    (property "Footprint" "Resistor_SMD:R_0603_1608Metric" (at 168.91 106.68 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Datasheet" "~" (at 168.91 106.68 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "LibRef" "ERT-J1VR103J" (at 168.91 106.68 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "SKU" "ERT-J1VR103J" (at 168.91 106.68 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Supplier" "Digikey" (at 168.91 106.68 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid 5a019d00-85d3-4b86-ac45-29c100087aa2))
-    (pin "2" (uuid 2bca69c1-cbc3-45ab-8b0c-51a1e747644b))
-    (instances
-      (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158/73c1ffb9-0c9c-4017-81f0-278e7ae6f0ea"
-          (reference "TH4") (unit 1)
-        )
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158/b617da6b-22d1-4740-87e8-7e95f36eceb5"
-          (reference "TH1") (unit 1)
-        )
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158/95241a03-0a6e-4bbf-acbc-540edf19a6f0"
-          (reference "TH3") (unit 1)
-        )
-      )
-    )
-  )
-
-  (symbol (lib_id "Device:C_Small") (at 157.48 106.68 0) (mirror y) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no)
-    (uuid b3142545-b2b4-4aa3-a474-97b45332cdf8)
-    (property "Reference" "C16" (at 154.94 105.4163 0)
-      (effects (font (size 1.27 1.27)) (justify left))
-    )
-    (property "Value" "1u" (at 154.94 107.9563 0)
-      (effects (font (size 1.27 1.27)) (justify left))
-    )
-    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (at 157.48 106.68 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Datasheet" "~" (at 157.48 106.68 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "LibRef" "CL10A105KA8NNNC" (at 157.48 106.68 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "SKU" "CL10A105KA8NNNC" (at 157.48 106.68 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Supplier" "Digikey" (at 157.48 106.68 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Description" "CAP CER 1UF 25V X5R 0603" (at 157.48 106.68 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid b9b485cf-d859-4e3b-986d-3a9c640340a4))
-    (pin "2" (uuid c0af2e34-e818-44bd-a19b-b7961d153f4a))
-    (instances
-      (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158/73c1ffb9-0c9c-4017-81f0-278e7ae6f0ea"
-          (reference "C16") (unit 1)
-        )
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158/b617da6b-22d1-4740-87e8-7e95f36eceb5"
-          (reference "C1") (unit 1)
-        )
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158/95241a03-0a6e-4bbf-acbc-540edf19a6f0"
-          (reference "C4") (unit 1)
-        )
-      )
-    )
-  )
-
-  (symbol (lib_id "power:GND") (at 157.48 111.76 0) (mirror y) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no)
-    (uuid b37851ba-667f-4b8c-a825-c5577df10e17)
-    (property "Reference" "#PWR048" (at 157.48 118.11 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Value" "GND" (at 157.48 114.3 90)
-      (effects (font (size 1.27 1.27)) (justify right) hide)
-    )
-    (property "Footprint" "" (at 157.48 111.76 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Datasheet" "" (at 157.48 111.76 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid 9f8cac53-3c05-460c-8ed7-fd04f9661818))
-    (instances
-      (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158/73c1ffb9-0c9c-4017-81f0-278e7ae6f0ea"
-          (reference "#PWR048") (unit 1)
-        )
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158/b617da6b-22d1-4740-87e8-7e95f36eceb5"
-          (reference "#PWR03") (unit 1)
-        )
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158/95241a03-0a6e-4bbf-acbc-540edf19a6f0"
-          (reference "#PWR012") (unit 1)
-        )
-      )
-    )
-  )
-
-  (symbol (lib_id "power:+3.3VA") (at 157.48 87.63 0) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
-    (uuid f411988a-19e6-4c22-9849-fa9fb315f692)
-    (property "Reference" "#PWR046" (at 157.48 91.44 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Value" "+3.3VA" (at 157.48 82.55 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" "" (at 157.48 87.63 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Datasheet" "" (at 157.48 87.63 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid 7ded76b9-6956-416d-a699-13b5ac96329b))
-    (instances
-      (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158/73c1ffb9-0c9c-4017-81f0-278e7ae6f0ea"
-          (reference "#PWR046") (unit 1)
-        )
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158/b617da6b-22d1-4740-87e8-7e95f36eceb5"
-          (reference "#PWR01") (unit 1)
-        )
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158/95241a03-0a6e-4bbf-acbc-540edf19a6f0"
-          (reference "#PWR010") (unit 1)
-        )
-      )
-    )
-  )
+(kicad_sch
+	(version 20250114)
+	(generator "eeschema")
+	(generator_version "9.0")
+	(uuid "d9106ea9-1e58-4f5c-856e-e20d8ff7a604")
+	(paper "A4")
+	(lib_symbols
+		(symbol "Device:C_Small"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0.254)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "C"
+				(at 0.254 1.778 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "C_Small"
+				(at 0.254 -2.032 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Unpolarized capacitor, small symbol"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "capacitor cap"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "C_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "C_Small_0_1"
+				(polyline
+					(pts
+						(xy -1.524 0.508) (xy 1.524 0.508)
+					)
+					(stroke
+						(width 0.3048)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.524 -0.508) (xy 1.524 -0.508)
+					)
+					(stroke
+						(width 0.3302)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "C_Small_1_1"
+				(pin passive line
+					(at 0 2.54 270)
+					(length 2.032)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -2.54 90)
+					(length 2.032)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "Device:R_Small"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0.254)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "R"
+				(at 0.762 0.508 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "R_Small"
+				(at 0.762 -1.016 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Resistor, small symbol"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "R resistor"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "R_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "R_Small_0_1"
+				(rectangle
+					(start -0.762 1.778)
+					(end 0.762 -1.778)
+					(stroke
+						(width 0.2032)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "R_Small_1_1"
+				(pin passive line
+					(at 0 2.54 270)
+					(length 0.762)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -2.54 90)
+					(length 0.762)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "Device:Thermistor"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "TH"
+				(at 2.54 1.27 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Thermistor"
+				(at -2.54 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Temperature dependent resistor"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "R res thermistor"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "R_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Thermistor_0_1"
+				(polyline
+					(pts
+						(xy -1.905 3.175) (xy -1.905 1.905) (xy 1.905 -1.905) (xy 1.905 -3.175) (xy 1.905 -3.175)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.016 2.54)
+					(end 1.016 -2.54)
+					(stroke
+						(width 0.2032)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "Thermistor_1_1"
+				(pin passive line
+					(at 0 5.08 270)
+					(length 2.54)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -5.08 90)
+					(length 2.54)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "power:+3.3VA"
+			(power)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "#PWR"
+				(at 0 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Value" "+3.3VA"
+				(at 0 3.556 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Power symbol creates a global label with name \"+3.3VA\""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "global power"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "+3.3VA_0_1"
+				(polyline
+					(pts
+						(xy -0.762 1.27) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 2.54) (xy 0.762 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "+3.3VA_1_1"
+				(pin power_in line
+					(at 0 0 90)
+					(length 0)
+					(hide yes)
+					(name "+3.3VA"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "power:GND"
+			(power)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "#PWR"
+				(at 0 -6.35 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Value" "GND"
+				(at 0 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "global power"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "GND_0_1"
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 -1.27) (xy 1.27 -1.27) (xy 0 -2.54) (xy -1.27 -1.27) (xy 0 -1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "GND_1_1"
+				(pin power_in line
+					(at 0 0 270)
+					(length 0)
+					(hide yes)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+	)
+	(junction
+		(at 157.48 100.33)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "6f83a1f0-f6fb-4f54-9f43-2bae7728c45c")
+	)
+	(junction
+		(at 157.48 101.6)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "a0b0eb7c-811d-440d-8a0f-369787d9c9cb")
+	)
+	(junction
+		(at 157.48 111.76)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "fdcfde2c-f86d-45fc-83b8-4b80c771d5f9")
+	)
+	(wire
+		(pts
+			(xy 157.48 101.6) (xy 168.91 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4108401e-d0b1-4c40-b3b4-b39dd00507cc")
+	)
+	(wire
+		(pts
+			(xy 157.48 87.63) (xy 157.48 88.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "62473a56-646f-4942-8c72-9778f1189cd7")
+	)
+	(wire
+		(pts
+			(xy 157.48 93.98) (xy 157.48 100.33)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "84f4ea72-b597-4719-a7a3-5ca48cef95db")
+	)
+	(wire
+		(pts
+			(xy 153.67 100.33) (xy 157.48 100.33)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ab94aea6-c759-47af-bd89-6efe7f3b3a3d")
+	)
+	(wire
+		(pts
+			(xy 157.48 109.22) (xy 157.48 111.76)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b4e95c26-8881-4865-b503-ea74d6cc0c93")
+	)
+	(wire
+		(pts
+			(xy 157.48 100.33) (xy 157.48 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d26bdb09-fbd9-41dd-9813-96c0db46df7b")
+	)
+	(wire
+		(pts
+			(xy 157.48 101.6) (xy 157.48 104.14)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d79c991c-c348-4cf2-b29d-8599de006351")
+	)
+	(wire
+		(pts
+			(xy 157.48 111.76) (xy 168.91 111.76)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e7ad5947-17f7-4c6b-afd8-30d8a0b311fa")
+	)
+	(hierarchical_label "TEMP"
+		(shape input)
+		(at 153.67 100.33 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "d32e1c07-352b-4300-8895-416fe31190a1")
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 157.48 91.44 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "3af9d1d4-64f7-42e5-968b-99ee555a5d28")
+		(property "Reference" "R1"
+			(at 160.02 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10k 0.1%"
+			(at 160.02 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 157.48 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 157.48 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 157.48 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LibRef" ""
+			(at 157.48 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "SKU" ""
+			(at 157.48 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier" ""
+			(at 157.48 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "1eebf8ac-8ac4-4870-b65f-20d78eb35ada")
+		)
+		(pin "2"
+			(uuid "82e01003-839e-4cb1-aa6c-e31bf8a72a1b")
+		)
+		(instances
+			(project "cell-tap-connector-pcb"
+				(path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158/73c1ffb9-0c9c-4017-81f0-278e7ae6f0ea"
+					(reference "R31")
+					(unit 1)
+				)
+				(path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158/95241a03-0a6e-4bbf-acbc-540edf19a6f0"
+					(reference "R7")
+					(unit 1)
+				)
+				(path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158/b617da6b-22d1-4740-87e8-7e95f36eceb5"
+					(reference "R1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:Thermistor")
+		(at 168.91 106.68 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "4d5c31fc-322a-4831-aeba-f87a3656c7fc")
+		(property "Reference" "TH1"
+			(at 172.72 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10k NTC ERT-J1VR103J"
+			(at 172.72 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 168.91 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 168.91 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 168.91 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LibRef" "ERT-J1VR103J"
+			(at 168.91 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "SKU" "ERT-J1VR103J"
+			(at 168.91 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier" "Digikey"
+			(at 168.91 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "5a019d00-85d3-4b86-ac45-29c100087aa2")
+		)
+		(pin "2"
+			(uuid "2bca69c1-cbc3-45ab-8b0c-51a1e747644b")
+		)
+		(instances
+			(project "cell-tap-connector-pcb"
+				(path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158/73c1ffb9-0c9c-4017-81f0-278e7ae6f0ea"
+					(reference "TH4")
+					(unit 1)
+				)
+				(path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158/95241a03-0a6e-4bbf-acbc-540edf19a6f0"
+					(reference "TH3")
+					(unit 1)
+				)
+				(path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158/b617da6b-22d1-4740-87e8-7e95f36eceb5"
+					(reference "TH1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Small")
+		(at 157.48 106.68 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "b3142545-b2b4-4aa3-a474-97b45332cdf8")
+		(property "Reference" "C1"
+			(at 154.94 105.4163 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "1u"
+			(at 154.94 107.9563 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 157.48 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 157.48 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "CAP CER 1UF 25V X5R 0603"
+			(at 157.48 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LibRef" "CL10A105KA8NNNC"
+			(at 157.48 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "SKU" "CL10A105KA8NNNC"
+			(at 157.48 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Supplier" "Digikey"
+			(at 157.48 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "b9b485cf-d859-4e3b-986d-3a9c640340a4")
+		)
+		(pin "2"
+			(uuid "c0af2e34-e818-44bd-a19b-b7961d153f4a")
+		)
+		(instances
+			(project "cell-tap-connector-pcb"
+				(path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158/73c1ffb9-0c9c-4017-81f0-278e7ae6f0ea"
+					(reference "C16")
+					(unit 1)
+				)
+				(path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158/95241a03-0a6e-4bbf-acbc-540edf19a6f0"
+					(reference "C4")
+					(unit 1)
+				)
+				(path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158/b617da6b-22d1-4740-87e8-7e95f36eceb5"
+					(reference "C1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 157.48 111.76 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "b37851ba-667f-4b8c-a825-c5577df10e17")
+		(property "Reference" "#PWR03"
+			(at 157.48 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 157.48 114.3 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+		(property "Footprint" ""
+			(at 157.48 111.76 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 157.48 111.76 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 157.48 111.76 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "9f8cac53-3c05-460c-8ed7-fd04f9661818")
+		)
+		(instances
+			(project "cell-tap-connector-pcb"
+				(path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158/73c1ffb9-0c9c-4017-81f0-278e7ae6f0ea"
+					(reference "#PWR048")
+					(unit 1)
+				)
+				(path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158/95241a03-0a6e-4bbf-acbc-540edf19a6f0"
+					(reference "#PWR012")
+					(unit 1)
+				)
+				(path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158/b617da6b-22d1-4740-87e8-7e95f36eceb5"
+					(reference "#PWR03")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3.3VA")
+		(at 157.48 87.63 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f411988a-19e6-4c22-9849-fa9fb315f692")
+		(property "Reference" "#PWR01"
+			(at 157.48 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3.3VA"
+			(at 157.48 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 157.48 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 157.48 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 157.48 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "7ded76b9-6956-416d-a699-13b5ac96329b")
+		)
+		(instances
+			(project "cell-tap-connector-pcb"
+				(path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158/73c1ffb9-0c9c-4017-81f0-278e7ae6f0ea"
+					(reference "#PWR046")
+					(unit 1)
+				)
+				(path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158/95241a03-0a6e-4bbf-acbc-540edf19a6f0"
+					(reference "#PWR010")
+					(unit 1)
+				)
+				(path "/b8571e6a-e18a-40b9-808f-3f086437be1b/fc85c946-576e-4f03-89ac-fa7b10888158/b617da6b-22d1-4740-87e8-7e95f36eceb5"
+					(reference "#PWR01")
+					(unit 1)
+				)
+			)
+		)
+	)
 )

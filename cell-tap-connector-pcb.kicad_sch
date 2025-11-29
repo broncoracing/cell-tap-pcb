@@ -1,48 +1,98 @@
-(kicad_sch (version 20230121) (generator eeschema)
-
-  (uuid b8571e6a-e18a-40b9-808f-3f086437be1b)
-
-  (paper "A4")
-
-  (lib_symbols
-  )
-
-
-  (sheet (at 149.86 63.5) (size 68.58 54.61) (fields_autoplaced)
-    (stroke (width 0.1524) (type solid))
-    (fill (color 0 0 0 0.0000))
-    (uuid 61ef8a08-b3c1-45d1-bd6c-3b0bcf3dcd0a)
-    (property "Sheetname" "Isolator" (at 149.86 62.7884 0)
-      (effects (font (size 1.27 1.27)) (justify left bottom))
-    )
-    (property "Sheetfile" "Isolater.kicad_sch" (at 149.86 118.6946 0)
-      (effects (font (size 1.27 1.27)) (justify left top))
-    )
-    (instances
-      (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b" (page "19"))
-      )
-    )
-  )
-
-  (sheet (at 62.23 63.5) (size 67.31 54.61) (fields_autoplaced)
-    (stroke (width 0.1524) (type solid))
-    (fill (color 0 0 0 0.0000))
-    (uuid fc85c946-576e-4f03-89ac-fa7b10888158)
-    (property "Sheetname" "Cell PCB" (at 62.23 62.7884 0)
-      (effects (font (size 1.27 1.27)) (justify left bottom))
-    )
-    (property "Sheetfile" "cell-pcb.kicad_sch" (at 62.23 118.6946 0)
-      (effects (font (size 1.27 1.27)) (justify left top))
-    )
-    (instances
-      (project "cell-tap-connector-pcb"
-        (path "/b8571e6a-e18a-40b9-808f-3f086437be1b" (page "18"))
-      )
-    )
-  )
-
-  (sheet_instances
-    (path "/" (page "1"))
-  )
+(kicad_sch
+	(version 20250114)
+	(generator "eeschema")
+	(generator_version "9.0")
+	(uuid "b8571e6a-e18a-40b9-808f-3f086437be1b")
+	(paper "A4")
+	(lib_symbols)
+	(sheet
+		(at 149.86 63.5)
+		(size 68.58 54.61)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "61ef8a08-b3c1-45d1-bd6c-3b0bcf3dcd0a")
+		(property "Sheetname" "Isolator"
+			(at 149.86 62.7884 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "Isolater.kicad_sch"
+			(at 149.86 118.6946 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "cell-tap-connector-pcb"
+				(path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
+					(page "19")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 62.23 63.5)
+		(size 67.31 54.61)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "fc85c946-576e-4f03-89ac-fa7b10888158")
+		(property "Sheetname" "Cell PCB"
+			(at 62.23 62.7884 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "cell-pcb.kicad_sch"
+			(at 62.23 118.6946 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "cell-tap-connector-pcb"
+				(path "/b8571e6a-e18a-40b9-808f-3f086437be1b"
+					(page "18")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
 )
